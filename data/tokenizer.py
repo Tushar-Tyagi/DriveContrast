@@ -24,11 +24,8 @@ class ActionTokenizer:
             raise ValueError(f"No tar files found in {data_dir}. Cannot fit tokenizer.")
             
         all_actions = []
-        # Subsample tar files or process all
-        num_files_to_sample = max(1, int(len(tar_files) * sample_ratio))
-        sampled_files = np.random.choice(tar_files, num_files_to_sample, replace=False)
         
-        for file in sampled_files:
+        for file in tar_files:
             try:
                 with tarfile.open(file, 'r') as tar:
                     for member in tar.getmembers():
