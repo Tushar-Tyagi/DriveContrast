@@ -1,0 +1,11 @@
+torch>=2.0.0
+transformers>=4.40.0
+accelerate
+peft
+scikit-learn
+decord
+av
+numpy
+navsim
+tqdm
+einops
