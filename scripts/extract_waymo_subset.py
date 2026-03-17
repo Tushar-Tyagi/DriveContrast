@@ -1,154 +1,205 @@
-"""
-Extract Waymo subset tar shards into the directory layout expected by ImpromptuVLADataset:
-  dataset_dir / subset / split / {id}.mp4, {id}.npy
-
-Trajectories are parsed from .q7_answer.txt (same format as the tokenizer) and saved as .npy.
-Video files are extracted as .mp4. Run this after download_waymo_subset.py and before
-fitting the tokenizer / training.
-"""
-
 import os
 import re
+import glob
 import tarfile
-import argparse
-import numpy as np
-from pathlib import Path
+import random
+import io
 from collections import defaultdict
 
-# Subset and splits that ImpromptuVLADataset uses by default
+import numpy as np
+from PIL import Image
+import cv2
+
+TAR_DIR = "/home/jeff/CS7643/DriveContrast/data/waymo_subset/waymo"
+OUTPUT_DIR = "/home/jeff/CS7643/DriveContrast/data"
 SUBSET = "Unconventional Dynamic Obstacles"
-TRAIN_PREFIX = "waymo_train"
-VAL_PREFIX = "waymo_val"
+VAL_RATIO = 0.1
+FPS = 2
+RESOLUTION = 224
+CLIP_SIZE = 16
+SEED = 42
+STRIDE = 8
 
 
-def parse_q7_answer(content: str):
-    """Parse [x, y] trajectory from .q7_answer.txt text. Returns (N, 2) numpy array or None."""
-    matches = re.findall(r"\[\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*\]", content)
+def parse_q7_answer(text: str) -> np.ndarray:
+    matches = re.findall(r"\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\]", text)
     if not matches:
-        return None
-    return np.array([[float(m[0]), float(m[1])] for m in matches], dtype=np.float32)
+        return np.zeros((10, 2), dtype=np.float32)
+    return np.array([[float(x), float(y)] for x, y in matches], dtype=np.float32)
 
 
-def get_split(tar_basename: str) -> str:
-    """Return 'train' or 'val' based on tar filename."""
-    if tar_basename.startswith(VAL_PREFIX):
-        return "val"
-    return "train"
+def pad_or_truncate_actions(actions: np.ndarray, horizon: int = 10) -> np.ndarray:
+    n = actions.shape[0]
+    if n >= horizon:
+        return actions[:horizon]
+    pad = np.tile(actions[-1:], (horizon - n, 1))
+    return np.concatenate([actions, pad], axis=0)
 
 
-def extract_tar(tar_path: str, out_root: str, subset: str) -> int:
-    """
-    Extract one tar into out_root/subset/train/ or .../val/.
-    Groups members by sample id (path stem). For each sample that has .q7_answer.txt,
-    writes .npy and extracts video as .mp4. Returns number of samples written.
-    """
-    out_root = Path(out_root)
-    tar_path = Path(tar_path)
-    tar_basename = tar_path.stem  # e.g. waymo_train_shard_0000
-    split = get_split(tar_basename)
-    out_dir = out_root / subset / split
-    out_dir.mkdir(parents=True, exist_ok=True)
+def frames_to_mp4(frames: list, output_path: str, fps: int = 2, resolution: int = 224):
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    writer = cv2.VideoWriter(output_path, fourcc, fps, (resolution, resolution))
+    for pil_img in frames:
+        if pil_img.size != (resolution, resolution):
+            pil_img = pil_img.resize((resolution, resolution), Image.BILINEAR)
+        bgr = cv2.cvtColor(np.array(pil_img.convert("RGB")), cv2.COLOR_RGB2BGR)
+        writer.write(bgr)
+    writer.release()
 
-    # Group members by sample id: (dir part, stem) -> list of (member, ext)
-    groups = defaultdict(list)
-    video_exts = (".mp4", ".webm", ".avi", ".mkv")
+
+def extract_tar(tar_path: str) -> dict:
+    samples = {}
 
     with tarfile.open(tar_path, "r") as tar:
-        for member in tar.getmembers():
-            if not member.isfile():
+        members_by_name = {m.name: m for m in tar.getmembers()}
+
+        front_keys = [
+            name for name in members_by_name
+            if name.endswith(".camera_FRONT.png")
+        ]
+
+        for front_name in front_keys:
+            base = front_name.replace(".camera_FRONT.png", "")
+            sample_id = os.path.basename(base)
+
+            def read_member(suffix):
+                key = f"{base}.{suffix}"
+                m = members_by_name.get(key)
+                if m is None:
+                    return None
+                f = tar.extractfile(m)
+                return f.read() if f else None
+
+            png_bytes = read_member("camera_FRONT.png")
+            if png_bytes is None:
                 continue
-            name = member.name
-            stem = Path(name).stem
-            ext = Path(name).suffix.lower()
-            # Use full path inside tar as group key so different dirs don't collide
-            key = (os.path.dirname(name), stem)
-            groups[key].append((member, ext))
+            front_img = Image.open(io.BytesIO(png_bytes)).convert("RGB")
 
-    count = 0
-    with tarfile.open(tar_path, "r") as tar:
-        for (_d, stem), files in groups.items():
-            q7_member = None
-            vid_member = None
-            for member, ext in files:
-                if member.name.endswith(".q7_answer.txt"):
-                    q7_member = member
-                elif ext in video_exts:
-                    vid_member = (member, ext)
+            clip_bytes = read_member("clip_id.txt")
+            clip_id = clip_bytes.decode("utf-8").strip() if clip_bytes else "unknown"
 
-            if not q7_member:
-                continue
+            idx_bytes = read_member("idx.txt")
+            try:
+                frame_idx = int(idx_bytes.decode("utf-8").strip()) if idx_bytes else 0
+            except ValueError:
+                frame_idx = 0
 
-            # Parse trajectory
-            f = tar.extractfile(q7_member)
-            content = f.read().decode("utf-8") if f else ""
-            traj = parse_q7_answer(content)
-            if traj is None or len(traj) == 0:
-                continue
+            cat_bytes = read_member("category.txt")
+            category = cat_bytes.decode("utf-8").strip() if cat_bytes else ""
 
-            # Unique id: tar stem + sample stem to avoid collisions across shards
-            sample_id = f"{tar_basename}_{stem}"
-            npy_path = out_dir / f"{sample_id}.npy"
-            mp4_path = out_dir / f"{sample_id}.mp4"
-
-            # Save actions (horizon, 2) for tokenizer compatibility
-            np.save(npy_path, traj)
-
-            # Extract video if present
-            if vid_member is not None:
-                mem, _ = vid_member
-                tar.extract(mem, path=out_dir)
-                extracted = out_dir / mem.name
-                if extracted != mp4_path and extracted.exists():
-                    extracted.rename(mp4_path)
-                # If extract put file in a subdir (e.g. waymo/000001.mp4), clean up
-                if extracted.parent != out_dir and extracted.parent.exists():
-                    try:
-                        extracted.parent.rmdir()
-                    except OSError:
-                        pass
+            q7_bytes = read_member("q7_answer.txt")
+            if q7_bytes:
+                raw_actions = parse_q7_answer(q7_bytes.decode("utf-8"))
+                actions = pad_or_truncate_actions(raw_actions, horizon=10)
             else:
-                # No video in this sample; skip so dataset doesn't load empty
-                npy_path.unlink(missing_ok=True)
-                continue
+                actions = np.zeros((10, 2), dtype=np.float32)
 
-            count += 1
+            samples[sample_id] = {
+                "clip_id": clip_id,
+                "idx": frame_idx,
+                "front_png": front_img,
+                "actions": actions,
+                "category": category,
+            }
 
-    return count
+    return samples
+
+
+def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list:
+    by_clip = defaultdict(list)
+    for sample_id, data in all_samples.items():
+        by_clip[data["clip_id"]].append(data)
+
+    clips = []
+    for clip_id, frames_data in by_clip.items():
+        frames_data.sort(key=lambda x: x["idx"])
+        n = len(frames_data)
+
+        if n < clip_size:
+            pad_needed = clip_size - n
+            padded = frames_data + [frames_data[-1]] * pad_needed
+            clips.append({
+                "clip_id": clip_id,
+                "clip_window_idx": 0,
+                "frames": [d["front_png"] for d in padded],
+                "actions": frames_data[-1]["actions"],
+            })
+        else:
+            window_idx = 0
+            for start in range(0, n - clip_size + 1, stride):
+                window = frames_data[start: start + clip_size]
+                clips.append({
+                    "clip_id": clip_id,
+                    "clip_window_idx": window_idx,
+                    "frames": [d["front_png"] for d in window],
+                    "actions": window[-1]["actions"],
+                })
+                window_idx += 1
+
+    return clips
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Extract Waymo subset tars to mp4+npy for training.")
-    parser.add_argument(
-        "--dataset_dir",
-        type=str,
-        default="data/waymo_subset",
-        help="Directory containing waymo/*.tar shards (output of download_waymo_subset.py)",
-    )
-    parser.add_argument(
-        "--subset",
-        type=str,
-        default=SUBSET,
-        help=f"Subset name under dataset_dir (default: {SUBSET})",
-    )
-    args = parser.parse_args()
+    random.seed(SEED)
+    np.random.seed(SEED)
 
-    dataset_dir = Path(args.dataset_dir)
-    if not dataset_dir.exists():
-        raise FileNotFoundError(f"Dataset dir not found: {dataset_dir}. Run download_waymo_subset.py first.")
-
-    tar_files = sorted(dataset_dir.rglob("*.tar"))
+    tar_files = sorted(glob.glob(os.path.join(TAR_DIR, "*.tar")))
     if not tar_files:
-        raise FileNotFoundError(f"No .tar files under {dataset_dir}. Run download_waymo_subset.py first.")
+        tar_files = sorted(glob.glob(os.path.join(TAR_DIR, "**", "*.tar"), recursive=True))
+    if not tar_files:
+        raise FileNotFoundError(f"No .tar files found under {TAR_DIR}")
 
-    total = 0
-    for tar_path in tar_files:
-        n = extract_tar(str(tar_path), str(dataset_dir), args.subset)
-        total += n
-        print(f"  {tar_path.name}: {n} samples")
+    print(f"Found {len(tar_files)} tar shard(s) in {TAR_DIR}")
 
-    print(f"Extracted {total} samples to {dataset_dir / args.subset}.")
-    print("Next: python data/tokenizer.py --dataset_dir", args.dataset_dir)
-    print("Then: python scripts/train.py --dataset_dir", args.dataset_dir)
+    all_samples = {}
+    for i, tar_path in enumerate(tar_files):
+        print(f"  [{i+1}/{len(tar_files)}] Reading {os.path.basename(tar_path)} ...", flush=True)
+        shard_samples = extract_tar(tar_path)
+        print(f"    → {len(shard_samples)} frames extracted")
+        all_samples.update(shard_samples)
+
+    print(f"\nTotal frames across all shards: {len(all_samples)}")
+
+    print("Assembling clips by clip_id ...")
+    clips = build_clips(all_samples, clip_size=CLIP_SIZE, stride=STRIDE)
+    print(f"Total clips assembled: {len(clips)}")
+
+    unique_clip_ids = list({c["clip_id"] for c in clips})
+    random.shuffle(unique_clip_ids)
+    n_val = max(1, int(len(unique_clip_ids) * VAL_RATIO))
+    val_ids = set(unique_clip_ids[:n_val])
+    train_ids = set(unique_clip_ids[n_val:])
+
+    train_clips = [c for c in clips if c["clip_id"] in train_ids]
+    val_clips   = [c for c in clips if c["clip_id"] in val_ids]
+    print(f"Split: {len(train_clips)} train clips, {len(val_clips)} val clips")
+
+    for split_name, split_clips in [("train", train_clips), ("val", val_clips)]:
+        out_dir = os.path.join(OUTPUT_DIR, SUBSET, split_name)
+        os.makedirs(out_dir, exist_ok=True)
+        print(f"\nWriting {split_name} split to {out_dir} ...")
+
+        for clip in split_clips:
+            safe_clip_id = re.sub(r"[^\w\-]", "_", clip["clip_id"])
+            base_name = f"clip_{safe_clip_id}_{clip['clip_window_idx']:04d}"
+
+            mp4_path = os.path.join(out_dir, f"{base_name}.mp4")
+            npy_path = os.path.join(out_dir, f"{base_name}.npy")
+
+            frames_to_mp4(clip["frames"], mp4_path, fps=FPS, resolution=RESOLUTION)
+            np.save(npy_path, clip["actions"].astype(np.float32))
+
+        print(f"  ✓ {len(split_clips)} clips written to {split_name}/")
+
+    print("\nExtraction complete.")
+    print(f"Directory structure:")
+    print(f"  {OUTPUT_DIR}/")
+    print(f"  └── {SUBSET}/")
+    print(f"      ├── train/   ({len(train_clips)} clips)")
+    print(f"      └── val/     ({len(val_clips)} clips)")
+    print(f"\nNow run:")
+    print(f"  python data/tokenizer.py --dataset_dir '{OUTPUT_DIR}' --output_file data/action_centers.pt")
+    print(f"  python train.py --dataset_dir '{OUTPUT_DIR}' --subset '{SUBSET}'")
 
 
 if __name__ == "__main__":

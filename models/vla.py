@@ -39,7 +39,7 @@ class AutoVLA4D(nn.Module):
             torch_dtype=torch.bfloat16,
             device_map="auto"
         )
-        self.vlm_hidden_dim = self.vlm.config.hidden_size # 2048 for 3B
+        self.vlm_hidden_dim = self.vlm.config.text_config.hidden_size
         
         # 3. Projection Layer
         self.projector = ProjectionLayer(input_dim=self.vision_dim, output_dim=self.vlm_hidden_dim)
