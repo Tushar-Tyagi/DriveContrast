@@ -163,3 +163,7 @@ cython_debug/
 
 # Mac OS X
 .DS_Store
+
+data/Unconventional\ Dynamic \Obstacles
+data/waymo_subset
+models/lora_adapter

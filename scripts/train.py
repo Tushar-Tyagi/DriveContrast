@@ -40,7 +40,7 @@ def main():
     parser.add_argument("--dataset_dir", type=str, default="data/waymo_subset", help="Path to dataset directory")
     parser.add_argument("--subset", type=str, default="Unconventional Dynamic Obstacles", help="Subset name under dataset_dir (must match extract script)")
     parser.add_argument("--split", type=str, default="train", help="Dataset split (e.g. train, val)")
-    parser.add_argument("--batch_size", type=int, default=2, help="Batch size")
+    parser.add_argument("--batch_size", type=int, default=1, help="Batch size")
     parser.add_argument("--lr", type=float, default=1e-5, help="Learning rate")
     parser.add_argument("--epochs", type=int, default=3, help="Number of training epochs")
     parser.add_argument("--action_centers", type=str, default="data/action_centers.pt", help="Path to Action Tokenizer centers")
@@ -117,6 +117,7 @@ def main():
     print("Saving Projector and Action Head weights...")
     torch.save(model.projector.state_dict(), "models/projector_weights.pt")
     torch.save(model.action_head.state_dict(), "models/action_head_weights.pt")
+    model.vlm.save_pretrained("models/lora_adapter")
     print("Saving completed.")
 
 if __name__ == "__main__":

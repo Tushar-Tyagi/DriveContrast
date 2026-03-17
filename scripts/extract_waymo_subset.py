@@ -10,8 +10,9 @@ import numpy as np
 from PIL import Image
 import cv2
 
-TAR_DIR = "/home/jeff/CS7643/DriveContrast/data/waymo_subset/waymo"
-OUTPUT_DIR = "/home/jeff/CS7643/DriveContrast/data"
+HOME = "/home/jeffreyfang/cs7643/DriveContrast"
+TAR_DIR = f"{HOME}/data/waymo_subset/waymo"
+OUTPUT_DIR = f"{HOME}/data"
 SUBSET = "Unconventional Dynamic Obstacles"
 VAL_RATIO = 0.1
 FPS = 2
