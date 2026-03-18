@@ -13,19 +13,14 @@ from data.tokenizer import ActionTokenizer
 
 def load_trained_model(args, device):
     model = AutoVLA4D(use_vanilla_backbone=False)
-
-    # DO NOT call get_peft_model here — the saved adapter already contains
-    # the LoRA config. Loading it will wrap the model exactly once.
-    from peft import PeftModel
     print(f"Loading LoRA adapter from: {args.lora_adapter}")
+    
     model.vlm = PeftModel.from_pretrained(
         model.vlm,
         args.lora_adapter,
         is_trainable=False,
         local_files_only=True,
     )
-    # Now the chain is: PeftModel → LoraModel → Qwen2_5_VLForConditionalGeneration
-    # and _get_base_decoder correctly resolves to Qwen2_5_VLModel
 
     model.projector.load_state_dict(
         torch.load(args.projector_weights, map_location=device)
