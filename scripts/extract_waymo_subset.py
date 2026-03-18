@@ -54,10 +54,7 @@ def extract_tar(tar_path: str) -> dict:
     with tarfile.open(tar_path, "r") as tar:
         members_by_name = {m.name: m for m in tar.getmembers()}
 
-        front_keys = [
-            name for name in members_by_name
-            if name.endswith(".camera_FRONT.png")
-        ]
+        front_keys = [name for name in members_by_name if name.endswith(".camera_FRONT.png")]
 
         for front_name in front_keys:
             base = front_name.replace(".camera_FRONT.png", "")
@@ -146,22 +143,17 @@ def main():
 
     tar_files = sorted(glob.glob(os.path.join(TAR_DIR, "*.tar")))
     if not tar_files:
-        tar_files = sorted(glob.glob(os.path.join(TAR_DIR, "**", "*.tar"), recursive=True))
-    if not tar_files:
         raise FileNotFoundError(f"No .tar files found under {TAR_DIR}")
-
-    print(f"Found {len(tar_files)} tar shard(s) in {TAR_DIR}")
+    
+    print("Found shards, continuing with shard extraction")
 
     all_samples = {}
     for i, tar_path in enumerate(tar_files):
-        print(f"  [{i+1}/{len(tar_files)}] Reading {os.path.basename(tar_path)} ...", flush=True)
+        print(f"[{i + 1}/{len(tar_files)}] {os.path.basename(tar_path)}")
         shard_samples = extract_tar(tar_path)
-        print(f"    → {len(shard_samples)} frames extracted")
+        print(len(shard_samples), "frames")
         all_samples.update(shard_samples)
 
-    print(f"\nTotal frames across all shards: {len(all_samples)}")
-
-    print("Assembling clips by clip_id ...")
     clips = build_clips(all_samples, clip_size=CLIP_SIZE, stride=STRIDE)
     print(f"Total clips assembled: {len(clips)}")
 
@@ -178,7 +170,7 @@ def main():
     for split_name, split_clips in [("train", train_clips), ("val", val_clips)]:
         out_dir = os.path.join(OUTPUT_DIR, SUBSET, split_name)
         os.makedirs(out_dir, exist_ok=True)
-        print(f"\nWriting {split_name} split to {out_dir} ...")
+        print(f"Writing {split_name} split to {out_dir} ...")
 
         for clip in split_clips:
             safe_clip_id = re.sub(r"[^\w\-]", "_", clip["clip_id"])
@@ -190,17 +182,7 @@ def main():
             frames_to_mp4(clip["frames"], mp4_path, fps=FPS, resolution=RESOLUTION)
             np.save(npy_path, clip["actions"].astype(np.float32))
 
-        print(f"  ✓ {len(split_clips)} clips written to {split_name}/")
-
-    print("\nExtraction complete.")
-    print(f"Directory structure:")
-    print(f"  {OUTPUT_DIR}/")
-    print(f"  └── {SUBSET}/")
-    print(f"      ├── train/   ({len(train_clips)} clips)")
-    print(f"      └── val/     ({len(val_clips)} clips)")
-    print(f"\nNow run:")
-    print(f"  python data/tokenizer.py --dataset_dir '{OUTPUT_DIR}' --output_file data/action_centers.pt")
-    print(f"  python train.py --dataset_dir '{OUTPUT_DIR}' --subset '{SUBSET}'")
+    print("Extraction complete")
 
 
 if __name__ == "__main__":
