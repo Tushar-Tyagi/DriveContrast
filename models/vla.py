@@ -49,12 +49,9 @@ class AutoVLA4D(nn.Module):
         self.action_head = DiscreteActionHead(hidden_dim=self.vlm_hidden_dim, vocab_size=vocab_size)
 
     def _get_base_decoder(self):
-        from peft import PeftModel
         if isinstance(self.vlm, PeftModel):
-            # PeftModel → LoraModel → CausalLM → VLModel
             return self.vlm.base_model.model.model
         else:
-            # CausalLM → VLModel
             return self.vlm.model
 
     def forward(self, pixel_values, input_ids=None, attention_mask=None):

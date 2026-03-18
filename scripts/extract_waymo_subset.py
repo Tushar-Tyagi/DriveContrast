@@ -2,23 +2,22 @@ import os
 import re
 import glob
 import tarfile
-import random
 import io
 from collections import defaultdict
 
 import numpy as np
 from PIL import Image
 import cv2
+import gc
 
-HOME = "/home/jeffreyfang/cs7643/DriveContrast"
+HOME = "/home/jeff/CS7643/DriveContrast"
 TAR_DIR = f"{HOME}/data/waymo_subset/waymo"
 OUTPUT_DIR = f"{HOME}/data"
 SUBSET = "Unconventional Dynamic Obstacles"
-VAL_RATIO = 0.1
+
 FPS = 2
 RESOLUTION = 224
 CLIP_SIZE = 16
-SEED = 42
 STRIDE = 8
 
 
@@ -31,6 +30,8 @@ def parse_q7_answer(text: str) -> np.ndarray:
 
 def pad_or_truncate_actions(actions: np.ndarray, horizon: int = 10) -> np.ndarray:
     n = actions.shape[0]
+    if n == 0:
+        return np.zeros((horizon, 2), dtype=np.float32)
     if n >= horizon:
         return actions[:horizon]
     pad = np.tile(actions[-1:], (horizon - n, 1))
@@ -40,11 +41,13 @@ def pad_or_truncate_actions(actions: np.ndarray, horizon: int = 10) -> np.ndarra
 def frames_to_mp4(frames: list, output_path: str, fps: int = 2, resolution: int = 224):
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
     writer = cv2.VideoWriter(output_path, fourcc, fps, (resolution, resolution))
+
     for pil_img in frames:
         if pil_img.size != (resolution, resolution):
             pil_img = pil_img.resize((resolution, resolution), Image.BILINEAR)
         bgr = cv2.cvtColor(np.array(pil_img.convert("RGB")), cv2.COLOR_RGB2BGR)
         writer.write(bgr)
+
     writer.release()
 
 
@@ -53,7 +56,6 @@ def extract_tar(tar_path: str) -> dict:
 
     with tarfile.open(tar_path, "r") as tar:
         members_by_name = {m.name: m for m in tar.getmembers()}
-
         front_keys = [name for name in members_by_name if name.endswith(".camera_FRONT.png")]
 
         for front_name in front_keys:
@@ -105,13 +107,16 @@ def extract_tar(tar_path: str) -> dict:
 
 def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list:
     by_clip = defaultdict(list)
-    for sample_id, data in all_samples.items():
+    for _, data in all_samples.items():
         by_clip[data["clip_id"]].append(data)
 
     clips = []
     for clip_id, frames_data in by_clip.items():
         frames_data.sort(key=lambda x: x["idx"])
         n = len(frames_data)
+
+        if n == 0:
+            continue
 
         if n < clip_size:
             pad_needed = clip_size - n
@@ -125,7 +130,7 @@ def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list
         else:
             window_idx = 0
             for start in range(0, n - clip_size + 1, stride):
-                window = frames_data[start: start + clip_size]
+                window = frames_data[start:start + clip_size]
                 clips.append({
                     "clip_id": clip_id,
                     "clip_window_idx": window_idx,
@@ -137,50 +142,78 @@ def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list
     return clips
 
 
-def main():
-    random.seed(SEED)
-    np.random.seed(SEED)
+def collect_split_shards(tar_dir: str):
+    train_tars = sorted(glob.glob(os.path.join(tar_dir, "waymo_train_shard_*.tar")))
+    val_tars = sorted(glob.glob(os.path.join(tar_dir, "waymo_val_shard_*.tar")))
+    return train_tars, val_tars
 
-    tar_files = sorted(glob.glob(os.path.join(TAR_DIR, "*.tar")))
-    if not tar_files:
-        raise FileNotFoundError(f"No .tar files found under {TAR_DIR}")
-    
-    print("Found shards, continuing with shard extraction")
 
+def load_samples_from_shards(tar_files: list, split_name: str) -> dict:
     all_samples = {}
+
+    if not tar_files:
+        print(f"No {split_name} shards found.")
+        return all_samples
+
+    print(f"Found {len(tar_files)} {split_name} shards")
+
     for i, tar_path in enumerate(tar_files):
-        print(f"[{i + 1}/{len(tar_files)}] {os.path.basename(tar_path)}")
+        print(f"[{split_name} {i + 1}/{len(tar_files)}] {os.path.basename(tar_path)}")
         shard_samples = extract_tar(tar_path)
-        print(len(shard_samples), "frames")
-        all_samples.update(shard_samples)
+        print(f"  extracted {len(shard_samples)} frames")
 
-    clips = build_clips(all_samples, clip_size=CLIP_SIZE, stride=STRIDE)
-    print(f"Total clips assembled: {len(clips)}")
+        # In case sample_id names repeat across shards, make the key shard-specific
+        shard_prefix = os.path.splitext(os.path.basename(tar_path))[0]
+        for sample_id, sample in shard_samples.items():
+            unique_sample_id = f"{shard_prefix}__{sample_id}"
+            all_samples[unique_sample_id] = sample
 
-    unique_clip_ids = list({c["clip_id"] for c in clips})
-    random.shuffle(unique_clip_ids)
-    n_val = max(1, int(len(unique_clip_ids) * VAL_RATIO))
-    val_ids = set(unique_clip_ids[:n_val])
-    train_ids = set(unique_clip_ids[n_val:])
+    return all_samples
 
-    train_clips = [c for c in clips if c["clip_id"] in train_ids]
-    val_clips   = [c for c in clips if c["clip_id"] in val_ids]
-    print(f"Split: {len(train_clips)} train clips, {len(val_clips)} val clips")
 
-    for split_name, split_clips in [("train", train_clips), ("val", val_clips)]:
-        out_dir = os.path.join(OUTPUT_DIR, SUBSET, split_name)
-        os.makedirs(out_dir, exist_ok=True)
-        print(f"Writing {split_name} split to {out_dir} ...")
+def write_split(split_name: str, split_clips: list):
+    out_dir = os.path.join(OUTPUT_DIR, SUBSET, split_name)
+    os.makedirs(out_dir, exist_ok=True)
+    print(f"Writing {len(split_clips)} {split_name} clips to {out_dir} ...")
 
-        for clip in split_clips:
-            safe_clip_id = re.sub(r"[^\w\-]", "_", clip["clip_id"])
-            base_name = f"clip_{safe_clip_id}_{clip['clip_window_idx']:04d}"
+    for clip in split_clips:
+        safe_clip_id = re.sub(r"[^\w\-]", "_", clip["clip_id"])
+        base_name = f"clip_{safe_clip_id}_{clip['clip_window_idx']:04d}"
 
-            mp4_path = os.path.join(out_dir, f"{base_name}.mp4")
-            npy_path = os.path.join(out_dir, f"{base_name}.npy")
+        mp4_path = os.path.join(out_dir, f"{base_name}.mp4")
+        npy_path = os.path.join(out_dir, f"{base_name}.npy")
 
-            frames_to_mp4(clip["frames"], mp4_path, fps=FPS, resolution=RESOLUTION)
-            np.save(npy_path, clip["actions"].astype(np.float32))
+        frames_to_mp4(clip["frames"], mp4_path, fps=FPS, resolution=RESOLUTION)
+        np.save(npy_path, clip["actions"].astype(np.float32))
+
+
+def main():
+    train_tars, val_tars = collect_split_shards(TAR_DIR)
+
+    if not train_tars and not val_tars:
+        raise FileNotFoundError(
+            f"No training or validation shard .tar files found under {TAR_DIR}"
+        )
+
+    # Process train fully
+    train_samples = load_samples_from_shards(train_tars, "train")
+    train_clips = build_clips(train_samples, clip_size=CLIP_SIZE, stride=STRIDE)
+    print(f"Total train clips assembled: {len(train_clips)}")
+    write_split("train", train_clips)
+
+    del train_samples
+    del train_clips
+    gc.collect()
+
+    # Process val after train memory is freed
+    val_samples = load_samples_from_shards(val_tars, "val")
+    val_clips = build_clips(val_samples, clip_size=CLIP_SIZE, stride=STRIDE)
+    print(f"Total val clips assembled: {len(val_clips)}")
+    write_split("val", val_clips)
+
+    del val_samples
+    del val_clips
+    gc.collect()
 
     print("Extraction complete")
 
