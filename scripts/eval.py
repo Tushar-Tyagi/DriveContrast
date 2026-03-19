@@ -65,12 +65,21 @@ def score_ep(pred_traj, gt_traj):
     return float(np.clip(actual / max_progress, 0.0, 1.0))
 
 
+def score_ade(pred_traj, gt_traj):
+    pred_xy = pred_traj[:, :2]
+    gt_xy   = gt_traj[:, :2]
+    final_gt   = gt_traj[-1, :2]
+    init_gt    = gt_traj[0, :2]
+    max_progress = np.linalg.norm(final_gt - init_gt) + 1e-6
+    return 1 - np.linalg.norm(pred_xy - gt_xy, axis=1).mean() / max_progress
+
+
 def evaluate(model, dataloader, tokenizer, criterion, device):
     model.eval()
     device_type = device.type  # "cuda" or "cpu"
 
     total_loss = 0.0
-    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": []}
+    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": []}
 
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
@@ -108,6 +117,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 ep  = score_ep(pred, gt)
                 ttc = 1.0                     # score_ttc(pred, gt)
                 c   = score_comfort(pred)
+                ade = score_ade(pred, gt)
                 pdms = compute_pdms(nc, dac, ep, ttc, c)
 
                 metrics["NC"].append(nc)
@@ -116,6 +126,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 metrics["TTC"].append(ttc)
                 metrics["C"].append(c)
                 metrics["PDMS"].append(pdms)
+                metrics["ADE"].append(ade)
 
             pbar.set_postfix(loss=loss.item(), PDMS=f"{np.mean(metrics['PDMS']):.3f}")
 
