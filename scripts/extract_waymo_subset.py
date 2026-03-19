@@ -10,8 +10,9 @@ from PIL import Image
 import cv2
 import gc
 
-TAR_DIR = f"./data/waymo_subset/waymo"
-OUTPUT_DIR = f"./data/waymo_subset"
+HOME = "/home/jeffreyfang/cs7643/DriveContrast"
+TAR_DIR = f"{HOME}/data/waymo_subset/waymo"
+OUTPUT_DIR = f"{HOME}/data"
 SUBSET = "Unconventional Dynamic Obstacles"
 
 FPS = 2
