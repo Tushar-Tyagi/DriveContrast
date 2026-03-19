@@ -13,3 +13,4 @@ pillow
 opencv-python
 cupy
 gym_unity
+torchvision

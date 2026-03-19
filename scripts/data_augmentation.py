@@ -7,7 +7,7 @@ import shutil
 import cv2
 import numpy as np
 
-HOME = "/home/jeff/CS7643/DriveContrast"
+HOME = "/home/jeffreyfang/cs7643/DriveContrast"
 
 def apply_noise_injection(video_path, dest_path, noise_std=10):
     cap = cv2.VideoCapture(video_path)
