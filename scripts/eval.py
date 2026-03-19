@@ -37,6 +37,9 @@ def load_trained_model(args, device):
 def compute_pdms(nc, dac, ep, ttc, c):
     return (nc * dac) * ((5 * ttc + 5 * ep + 2 * c) / 12)
 
+def compute_modified_pdms(nc, dac, ep, ttc, c):
+    return  (5 * ep + 2 * c) / 7
+
 
 def score_comfort(traj):
     """Jerk-based comfort proxy. traj: (H, 3)"""
@@ -70,7 +73,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
     device_type = device.type  # "cuda" or "cpu"
 
     total_loss = 0.0
-    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": []}
+    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "PDMS_MODIFIED": []}
 
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
@@ -109,6 +112,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 ttc = 1.0                     # score_ttc(pred, gt)
                 c   = score_comfort(pred)
                 pdms = compute_pdms(nc, dac, ep, ttc, c)
+                pdms_modified = compute_modified_pdms(nc, dac, ep, ttc, c)
 
                 metrics["NC"].append(nc)
                 metrics["DAC"].append(dac)
@@ -116,6 +120,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 metrics["TTC"].append(ttc)
                 metrics["C"].append(c)
                 metrics["PDMS"].append(pdms)
+                metrics["PDMS_MODIFIED"].append(pdms_modified)
 
             pbar.set_postfix(loss=loss.item(), PDMS=f"{np.mean(metrics['PDMS']):.3f}")
 
