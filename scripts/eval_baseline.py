@@ -95,13 +95,21 @@ def build_qwen_inputs(batch, processor, device):
     )
     return {k: v.to(device) for k, v in inputs.items()}
 
+def score_ade(pred_traj, gt_traj):
+    pred_xy = pred_traj[:, :2]
+    gt_xy   = gt_traj[:, :2]
+    ade = np.linalg.norm(pred_xy - gt_xy, axis=1).mean()
+    gt_deltas = np.diff(gt_xy, axis=0)
+    gt_path_length = np.linalg.norm(gt_deltas, axis=1).sum() + 1e-6
+    score = 1.0 - ade / gt_path_length
+    return float(np.clip(score, 0.0, 1.0))
 
 def evaluate(model, dataloader, tokenizer, criterion, processor, device):
     model.eval()
     device_type = device.type
 
     total_loss = 0.0
-    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": []}
+    metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": []}
 
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
@@ -149,6 +157,7 @@ def evaluate(model, dataloader, tokenizer, criterion, processor, device):
                 ep   = score_ep(pred, gt)
                 ttc  = 1.0
                 c    = score_comfort(pred)
+                ade = score_ade(pred, gt)
                 pdms = compute_pdms(nc, dac, ep, ttc, c)
 
                 metrics["NC"].append(nc)
@@ -157,6 +166,7 @@ def evaluate(model, dataloader, tokenizer, criterion, processor, device):
                 metrics["TTC"].append(ttc)
                 metrics["C"].append(c)
                 metrics["PDMS"].append(pdms)
+                metrics["ADE"].append(ade)
 
             pbar.set_postfix(loss=loss.item(), PDMS=f"{np.mean(metrics['PDMS']):.3f}")
 

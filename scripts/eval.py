@@ -37,8 +37,8 @@ def load_trained_model(args, device):
 def compute_pdms(nc, dac, ep, ttc, c):
     return (nc * dac) * ((5 * ttc + 5 * ep + 2 * c) / 12)
 
-def compute_modified_pdms(nc, dac, ep, ttc, c):
-    return  (5 * ep + 2 * c) / 7
+def compute_modified_pdms(nc, dac, ep, ttc, c, ade):
+    return  (5 * ep + 5 * ade + 2 * c) / 12
 
 
 def score_comfort(traj):
@@ -71,10 +71,11 @@ def score_ep(pred_traj, gt_traj):
 def score_ade(pred_traj, gt_traj):
     pred_xy = pred_traj[:, :2]
     gt_xy   = gt_traj[:, :2]
-    final_gt   = gt_traj[-1, :2]
-    init_gt    = gt_traj[0, :2]
-    max_progress = np.linalg.norm(final_gt - init_gt) + 1e-6
-    return 1 - np.linalg.norm(pred_xy - gt_xy, axis=1).mean() / max_progress
+    ade = np.linalg.norm(pred_xy - gt_xy, axis=1).mean()
+    gt_deltas = np.diff(gt_xy, axis=0)
+    gt_path_length = np.linalg.norm(gt_deltas, axis=1).sum() + 1e-6
+    score = 1.0 - ade / gt_path_length
+    return float(np.clip(score, 0.0, 1.0))
 
 
 def evaluate(model, dataloader, tokenizer, criterion, device):
@@ -122,7 +123,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 c   = score_comfort(pred)
                 ade = score_ade(pred, gt)
                 pdms = compute_pdms(nc, dac, ep, ttc, c)
-                pdms_modified = compute_modified_pdms(nc, dac, ep, ttc, c)
+                pdms_modified = compute_modified_pdms(nc, dac, ep, ttc, c, ade)
 
                 metrics["NC"].append(nc)
                 metrics["DAC"].append(dac)
