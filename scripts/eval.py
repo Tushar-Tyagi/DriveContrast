@@ -10,6 +10,20 @@ from models.vla import AutoVLA4D
 from data.dataset import ImpromptuVLADataset
 from data.tokenizer import ActionTokenizer
 
+CATEGORIES = [
+    "Unaltered",
+    "Noise_Injection",
+    "Cutouts",
+    "Frame_Drops",
+    "Combination",
+]
+
+def extract_category(video_path: str) -> str:
+    stem = video_path.replace("\\", "/").split("/")[-1].rsplit(".", 1)[0]
+    for cat in CATEGORIES:
+        if stem.endswith(f"_{cat}"):
+            return cat
+    return "Unknown"
 
 def load_trained_model(args, device):
     model = AutoVLA4D(use_vanilla_backbone=False)
@@ -84,6 +98,7 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
 
     total_loss = 0.0
     metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": [], "PDMS_MODIFIED": []}
+    per_cat_metrics = {cat: {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": [], "PDMS_MODIFIED": []} for cat in CATEGORIES}
 
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
@@ -124,6 +139,11 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 ade = score_ade(pred, gt)
                 pdms = compute_pdms(nc, dac, ep, ttc, c)
                 pdms_modified = compute_modified_pdms(nc, dac, ep, ttc, c, ade)
+                ade           = score_ade(pred, gt)
+
+                cat = extract_category(batch["video_path"][b])  # needs video_path in batch
+                for k, v in zip(metrics, [nc, dac, ep, ttc, c, pdms, ade, pdms_modified]):
+                    per_cat_metrics[cat][k].append(v)
 
                 metrics["NC"].append(nc)
                 metrics["DAC"].append(dac)
@@ -139,6 +159,10 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
     n = len(dataloader)
     summary = {k: float(np.mean(v)) for k, v in metrics.items()}
     summary["loss"] = total_loss / n
+    summary["per_category"] = {
+        cat: {k: float(np.mean(v)) for k, v in per_cat_metrics[cat].items() if v}
+        for cat in CATEGORIES
+    }
     return summary
 
 
@@ -175,14 +199,29 @@ def main():
     results = evaluate(model, dataloader, tokenizer, criterion, device)
 
     print("\n── Results ──────────────────────────────────")
+    print(results["per_category"])
+    print("Overall:")
     for k, v in results.items():
-        print(f"  {k:<6}: {v:.4f}")
+        if k == "per_category":
+            for key, val in v.items():
+                print(key + ":")
+                for key2, val2 in val.items():
+                    print(f"  {key2:<6}: {val2:.4f}")
+        else:
+            print(f"  {k:<6}: {v:.4f}")
 
     # Save
     out = f"models/eval_results_{args.split}.txt"
     with open(out, "w") as f:
+        f.write("Overall:\n")
         for k, v in results.items():
-            f.write(f"{k}: {v:.4f}\n")
+            if k == "per_category":
+                for key, val in v.items():
+                    f.write(key + ":\n")
+                    for key2, val2 in val.items():
+                        f.write(f"  {key2:<6}: {val2:.4f}\n")
+            else:
+                f.write(f"  {k:<6}: {v:.4f}\n")
     print(f"\nSaved to {out}")
 
 

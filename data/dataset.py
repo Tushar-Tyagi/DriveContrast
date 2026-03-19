@@ -80,7 +80,8 @@ class ImpromptuVLADataset(Dataset):
         
         return {
             "pixel_values": processed_frames,
-            "continuous_actions": actions
+            "continuous_actions": actions,
+            "video_path": video_path,
         }
 
 if __name__ == "__main__":
