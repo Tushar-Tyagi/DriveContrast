@@ -70,6 +70,9 @@ def apply_frame_drops(video_path, dest_path, num_drops=4):
     i = 0
     indices = list(range(2, 16))
     drop_indices = set(random.sample(indices, min(num_drops, len(indices))))
+    # Half of the time drop the last frame
+    if random.random() < 0.5:
+        drop_indices.add(15)
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -83,7 +86,7 @@ def apply_frame_drops(video_path, dest_path, num_drops=4):
     cap.release()
     out.release()
 
-def apply_combined(video_path, dest_path, noise_std=10, num_cutouts=5, cutout_size=10, num_drops=3):
+def apply_combined(video_path, dest_path, noise_std=10, num_cutouts=10, cutout_size=20, num_drops=4):
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -94,6 +97,8 @@ def apply_combined(video_path, dest_path, noise_std=10, num_cutouts=5, cutout_si
     i = 0
     indices = list(range(5, 16))
     drop_indices = set(random.sample(indices, min(num_drops, len(indices))))
+    if random.random() < 0.5:
+        drop_indices.add(15)
     while True:
         ret, frame = cap.read()
         if not ret:

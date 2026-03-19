@@ -73,8 +73,8 @@ def build_qwen_inputs(batch, processor, device):
     B = batch["pixel_values"].shape[0]
 
     # (B, 16, 3, 224, 224) → pick middle frame → (B, 3, 224, 224)
-    mid = batch["pixel_values"].shape[1] // 2
-    frames = batch["pixel_values"][:, mid, :, :, :].cpu()  # <-- this line was missing
+    # mid = batch["pixel_values"].shape[1] // 2
+    frames = batch["pixel_values"][:, -1, :, :, :].cpu()  # <-- this line was missing
 
     # Undo VideoMAE normalization → [0, 1]
     frames = frames * VIDEOMAE_STD + VIDEOMAE_MEAN
