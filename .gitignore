@@ -167,3 +167,4 @@ cython_debug/
 data/Unconventional\ Dynamic \Obstacles
 data/waymo_subset
 models/lora_adapter
+data/AugmentedData
