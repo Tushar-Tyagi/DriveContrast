@@ -168,3 +168,8 @@ data/Unconventional\ Dynamic \Obstacles
 data/waymo_subset
 data/AugmentedData
 .vscode
+*.safetensors
+local/*
+*.out
+*.sh
+baseline/*

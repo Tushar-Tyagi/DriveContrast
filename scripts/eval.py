@@ -65,13 +65,13 @@ def score_ep(pred_traj, gt_traj):
     return float(np.clip(actual / max_progress, 0.0, 1.0))
 
 
-def evaluate(model, dataloader, tokenizer, criterion, device):
+def evaluate(model, dataloader, tokenizer, criterion, device, print_trajectories):
     model.eval()
     device_type = device.type  # "cuda" or "cpu"
 
     total_loss = 0.0
     metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": []}
-
+    n_printed = 0
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
         for batch in pbar:
@@ -117,6 +117,13 @@ def evaluate(model, dataloader, tokenizer, criterion, device):
                 metrics["C"].append(c)
                 metrics["PDMS"].append(pdms)
 
+                if print_trajectories and n_printed < 50:
+                    print(f"\n── Sample {n_printed + 1} ──────────────────────────")
+                    print(f"  GT   waypoints: {np.round(gt[:, :2], 3).tolist()}")
+                    print(f"  Pred waypoints: {np.round(pred[:, :2], 3).tolist()}")
+                    print(f"  EP={ep:.3f}  C={score_comfort(pred):.3f}  PDMS={pdms:.3f}")
+                    n_printed += 1
+
             pbar.set_postfix(loss=loss.item(), PDMS=f"{np.mean(metrics['PDMS']):.3f}")
 
     n = len(dataloader)
@@ -135,6 +142,7 @@ def main():
     parser.add_argument("--lora_adapter",     type=str, default="models/lora_adapter")
     parser.add_argument("--projector_weights",type=str, default="models/projector_weights.pt")
     parser.add_argument("--action_head_weights", type=str, default="models/action_head_weights.pt")
+    parser.add_argument("--print_trajectories", action="store_true")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -155,7 +163,7 @@ def main():
 
     # Run
     print("\nRunning evaluation...")
-    results = evaluate(model, dataloader, tokenizer, criterion, device)
+    results = evaluate(model, dataloader, tokenizer, criterion, device, print_trajectories=args.print_trajectories)
 
     print("\n── Results ──────────────────────────────────")
     for k, v in results.items():
