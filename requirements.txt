@@ -9,3 +9,7 @@ numpy
 navsim
 tqdm
 einops
+pillow
+opencv-python
+cupy
+gym_unity

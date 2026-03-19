@@ -14,40 +14,51 @@ class ActionTokenizer:
         self.centers = None
 
     def fit(self, data_dir, subset="Unconventional Dynamic Obstacles", split="train", sample_ratio=0.1):
-        print(f"Finding tar files in {os.path.join(data_dir)} for K-Disk clustering...")
-        import tarfile
-        import re
-        
-        tar_files = sorted(glob.glob(os.path.join(data_dir, "**", "*.tar"), recursive=True))
-            
-        if not tar_files:
-            raise ValueError(f"No tar files found in {data_dir}. Cannot fit tokenizer.")
-            
+        """
+        Fit the action codebook from either (1) tar shards containing .q7_answer.txt, or
+        (2) extracted .npy action files under data_dir (e.g. after scripts/extract_waymo_subset.py).
+        """
         all_actions = []
-        
-        for file in tar_files:
-            try:
-                with tarfile.open(file, 'r') as tar:
-                    for member in tar.getmembers():
-                        if member.name.endswith('.q7_answer.txt'):
-                            f = tar.extractfile(member)
-                            if f:
-                                content = f.read().decode('utf-8')
-                                # Extract floats within brackets like [5.50, -0.01]
-                                matches = re.findall(r'\[\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*\]', content)
-                                if matches:
-                                    # Convert to float and shape (time_horizon, 2)
-                                    trajectory = np.array([[float(m[0]), float(m[1])] for m in matches])
-                                    all_actions.append(trajectory)
-            except Exception as e:
-                print(f"Error reading {file}: {e}")
-                
+        tar_files = sorted(glob.glob(os.path.join(data_dir, "**", "*.tar"), recursive=True))
+        npy_files = sorted(glob.glob(os.path.join(data_dir, "**", "*.npy"), recursive=True))
+
+        if tar_files:
+            print(f"Fitting from {len(tar_files)} tar file(s) in {data_dir}...")
+            import tarfile
+            import re
+            for file in tar_files:
+                try:
+                    with tarfile.open(file, "r") as tar:
+                        for member in tar.getmembers():
+                            if member.name.endswith(".q7_answer.txt"):
+                                f = tar.extractfile(member)
+                                if f:
+                                    content = f.read().decode("utf-8")
+                                    matches = re.findall(r"\[\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*\]", content)
+                                    if matches:
+                                        trajectory = np.array([[float(m[0]), float(m[1])] for m in matches])
+                                        all_actions.append(trajectory)
+                except Exception as e:
+                    print(f"Error reading {file}: {e}")
+        elif npy_files:
+            print(f"Fitting from {len(npy_files)} extracted .npy file(s) in {data_dir}...")
+            for path in npy_files:
+                try:
+                    traj = np.load(path)
+                    if traj.ndim == 2 and traj.shape[0] > 0:
+                        all_actions.append(traj)
+                except Exception as e:
+                    print(f"Error loading {path}: {e}")
+        else:
+            raise ValueError(
+                f"No .tar or .npy files found under {data_dir}. "
+                "Run download_waymo_subset.py and then either extract_waymo_subset.py (to fit from .npy) or keep tars (to fit from .q7_answer.txt)."
+            )
+
         if not all_actions:
-            raise ValueError(f"No valid trajectory actions found in the parsed tar files.")
-            
+            raise ValueError("No valid trajectory actions found.")
         flattened_actions = np.concatenate(all_actions, axis=0)
-        print(f"Fitting MiniBatchKMeans over {len(flattened_actions)} continuous action steps for {self.vocab_size} centers...")
-        
+        print(f"Fitting MiniBatchKMeans over {len(flattened_actions)} steps for {self.vocab_size} centers...")
         self.kmeans = MiniBatchKMeans(n_clusters=self.vocab_size, random_state=42, batch_size=4096)
         self.kmeans.fit(flattened_actions)
         self.centers = torch.tensor(self.kmeans.cluster_centers_, dtype=torch.float32)

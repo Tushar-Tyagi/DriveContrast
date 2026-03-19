@@ -11,7 +11,17 @@ shards_to_download = [
     "waymo/waymo_train_shard_0000.tar",
     "waymo/waymo_train_shard_0001.tar",
     "waymo/waymo_train_shard_0002.tar",
-    "waymo/waymo_val_shard_0000.tar"
+    "waymo/waymo_train_shard_0003.tar",
+    "waymo/waymo_train_shard_0004.tar",
+    "waymo/waymo_train_shard_0005.tar",
+    "waymo/waymo_train_shard_0006.tar",
+    "waymo/waymo_train_shard_0007.tar",
+    "waymo/waymo_train_shard_0008.tar",
+    "waymo/waymo_train_shard_0009.tar",
+    "waymo/waymo_val_shard_0000.tar",
+    "waymo/waymo_val_shard_0001.tar",
+    "waymo/waymo_val_shard_0002.tar",
+    "waymo/waymo_val_shard_0003.tar"
 ]
 
 for shard in shards_to_download:
