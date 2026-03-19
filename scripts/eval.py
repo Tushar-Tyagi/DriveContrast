@@ -52,7 +52,7 @@ def compute_pdms(nc, dac, ep, ttc, c):
     return (nc * dac) * ((5 * ttc + 5 * ep + 2 * c) / 12)
 
 def compute_modified_pdms(nc, dac, ep, ttc, c, ade):
-    return  (5 * ep + 5 * ade + 2 * c) / 12
+    return  (5 * ep + 1 * ade + 2 * c) / 8
 
 
 def score_comfort(traj):
@@ -85,7 +85,7 @@ def score_ep(pred_traj, gt_traj):
 def score_ade(pred_traj, gt_traj):
     pred_xy = pred_traj[:, :2]
     gt_xy   = gt_traj[:, :2]
-    ade = np.linalg.norm(pred_xy - gt_xy, axis=1).mean()
+    ade = np.linalg.norm(pred_xy - gt_xy, axis=1).sum()
     gt_deltas = np.diff(gt_xy, axis=0)
     gt_path_length = np.linalg.norm(gt_deltas, axis=1).sum() + 1e-6
     score = 1.0 - ade / gt_path_length

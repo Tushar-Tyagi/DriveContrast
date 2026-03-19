@@ -1,55 +1,55 @@
 Overall:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.5294
+  EP    : 0.5102
   TTC   : 1.0000
-  C     : 0.8150
-  PDMS  : 0.7731
-  ADE   : 0.8177
-  PDMS_MODIFIED: 0.6972
-  loss  : 8.3611
+  C     : 0.6399
+  PDMS  : 0.7359
+  ADE   : 0.1671
+  PDMS_MODIFIED: 0.4997
+  loss  : 6.6540
 Unaltered:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.4490
+  EP    : 0.3684
   TTC   : 1.0000
-  C     : 0.8648
-  PDMS  : 0.7479
-  ADE   : 0.7955
-  PDMS_MODIFIED: 0.6627
+  C     : 0.7284
+  PDMS  : 0.6916
+  ADE   : 0.1411
+  PDMS_MODIFIED: 0.4300
 Noise_Injection:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.5173
+  EP    : 0.5115
   TTC   : 1.0000
-  C     : 0.9101
-  PDMS  : 0.7839
-  ADE   : 0.8205
-  PDMS_MODIFIED: 0.7091
+  C     : 0.6655
+  PDMS  : 0.7407
+  ADE   : 0.1542
+  PDMS_MODIFIED: 0.5054
 Cutouts:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.6835
+  EP    : 0.6800
   TTC   : 1.0000
-  C     : 0.7874
-  PDMS  : 0.8327
-  ADE   : 0.8550
-  PDMS_MODIFIED: 0.7723
+  C     : 0.5435
+  PDMS  : 0.7906
+  ADE   : 0.2276
+  PDMS_MODIFIED: 0.5893
 Frame_Drops:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.4858
+  EP    : 0.4847
   TTC   : 1.0000
-  C     : 0.6435
-  PDMS  : 0.7263
-  ADE   : 0.8139
-  PDMS_MODIFIED: 0.6488
+  C     : 0.6104
+  PDMS  : 0.7204
+  ADE   : 0.1577
+  PDMS_MODIFIED: 0.4753
 Combination:
   NC    : 1.0000
   DAC   : 1.0000
-  EP    : 0.5116
+  EP    : 0.5062
   TTC   : 1.0000
-  C     : 0.8690
-  PDMS  : 0.7747
-  ADE   : 0.8038
-  PDMS_MODIFIED: 0.6929
+  C     : 0.6518
+  PDMS  : 0.7362
+  ADE   : 0.1552
+  PDMS_MODIFIED: 0.4987
