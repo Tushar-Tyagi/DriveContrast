@@ -94,7 +94,12 @@ def build_qwen_inputs(batch, processor, device):
             "role": "user",
             "content": [
                 {"type": "image"},
-                {"type": "text", "text": "Predict the future trajectory of the ego vehicle."},
+                {"type": "text", "text": (
+                    "You are an autonomous driving system operating in ego-centric coordinates. "
+                    "Predict the next 10 waypoints (x, y) in metres over a 5-second horizon at 2 Hz, "
+                    "where x is forward and y is lateral. "
+                    "Each waypoint represents the ego vehicle's future position relative to its current location."
+                )},
             ],
         }])
 
@@ -120,7 +125,7 @@ def score_ade(pred_traj, gt_traj):
     score = 1.0 - ade / gt_path_length
     return float(np.clip(score, 0.0, 1.0))
 
-def evaluate(model, dataloader, tokenizer, criterion, processor, device):
+def evaluate(model, dataloader, tokenizer, criterion, processor, device, print_trajectories):
     model.eval()
     device_type = device.type
 
@@ -128,6 +133,7 @@ def evaluate(model, dataloader, tokenizer, criterion, processor, device):
     metrics = {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": [], "PDMS_MODIFIED": []}
     per_cat_metrics = {cat: {"NC": [], "DAC": [], "EP": [], "TTC": [], "C": [], "PDMS": [], "ADE": [], "PDMS_MODIFIED": []} for cat in CATEGORIES}
 
+    n_printed = 0
     with torch.no_grad():
         pbar = tqdm(dataloader, desc="Evaluating")
         for batch in pbar:
@@ -163,7 +169,7 @@ def evaluate(model, dataloader, tokenizer, criterion, processor, device):
             predicted_tokens  = torch.argmax(action_logits, dim=-1)      # (B, H)
             predicted_actions = tokenizer.decode(predicted_tokens.cpu())  # (B, H, 3)
             gt_actions        = continuous_actions.cpu().numpy()
-
+            
             B = predicted_actions.shape[0]
             for b in range(B):
                 pred = predicted_actions[b]
@@ -194,6 +200,12 @@ def evaluate(model, dataloader, tokenizer, criterion, processor, device):
                 metrics["PDMS"].append(pdms)
                 metrics["ADE"].append(ade)
 
+                if print_trajectories and n_printed < 30:
+                    print(f"\n── Sample {n_printed + 1} ──────────────────────────")
+                    print(f"  GT   waypoints: {np.round(gt[:, :2], 3).tolist()}")
+                    print(f"  Pred waypoints: {np.round(pred[:, :2], 3).tolist()}")
+                    print(f"  EP={ep:.3f}  C={c:.3f}  PDMS={pdms:.3f}")
+                    n_printed += 1
             pbar.set_postfix(loss=loss.item(), PDMS=f"{np.mean(metrics['PDMS']):.3f}")
 
     n = len(dataloader)
@@ -213,6 +225,7 @@ def main():
     parser.add_argument("--split",          type=str, default="val")
     parser.add_argument("--batch_size",     type=int, default=1)
     parser.add_argument("--action_centers", type=str, default="data/action_centers.pt")
+    parser.add_argument("--print_trajectories", action="store_true")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -229,7 +242,7 @@ def main():
     criterion        = nn.CrossEntropyLoss()
 
     print("\nRunning evaluation...")
-    results = evaluate(model, dataloader, tokenizer, criterion, processor, device)
+    results = evaluate(model, dataloader, tokenizer, criterion, processor, device, print_trajectories=args.print_trajectories)
 
     print("\n── Results ──────────────────────────────────")
     print("Overall:")
