@@ -1,0 +1,3566 @@
+[
+  {
+    "clip_id": "clip_Waymo_717_0000",
+    "condition": "unaltered",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 16.6187,
+    "l2_error": 21.1789
+  },
+  {
+    "clip_id": "clip_Waymo_738_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9781,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_738_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0531,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_789_0000",
+    "condition": "unaltered",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.4937,
+    "l2_error": 22.0992
+  },
+  {
+    "clip_id": "clip_Waymo_798_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.975,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_798_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2188,
+    "l2_error": 25.4731
+  },
+  {
+    "clip_id": "clip_Waymo_804_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_804_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1125,
+    "l2_error": 20.9857
+  },
+  {
+    "clip_id": "clip_Waymo_819_0000",
+    "condition": "unaltered",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.175,
+    "l2_error": 17.1128
+  },
+  {
+    "clip_id": "clip_Waymo_819_0001",
+    "condition": "unaltered",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 17.5812,
+    "l2_error": 19.1369
+  },
+  {
+    "clip_id": "clip_Waymo_832_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8156,
+    "l2_error": 15.9239
+  },
+  {
+    "clip_id": "clip_Waymo_832_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2313,
+    "l2_error": 20.9857
+  },
+  {
+    "clip_id": "clip_Waymo_834_0000",
+    "condition": "unaltered",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.275,
+    "l2_error": 19.8634
+  },
+  {
+    "clip_id": "clip_Waymo_837_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.825,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_837_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9344,
+    "l2_error": 21.2574
+  },
+  {
+    "clip_id": "clip_Waymo_838_0000",
+    "condition": "unaltered",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.0063,
+    "l2_error": 20.8631
+  },
+  {
+    "clip_id": "clip_Waymo_838_0001",
+    "condition": "unaltered",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.9094,
+    "l2_error": 22.2721
+  },
+  {
+    "clip_id": "clip_Waymo_840_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_840_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0312,
+    "l2_error": 23.8963
+  },
+  {
+    "clip_id": "clip_Waymo_844_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8719,
+    "l2_error": 17.4722
+  },
+  {
+    "clip_id": "clip_Waymo_844_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0781,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_851_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0844,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_851_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3891,
+    "l2_error": 18.1074
+  },
+  {
+    "clip_id": "clip_Waymo_856_0000",
+    "condition": "unaltered",
+    "EP": 0.3224,
+    "C": 0.0,
+    "PDMS": 0.551,
+    "loss": 18.25,
+    "l2_error": 21.8019
+  },
+  {
+    "clip_id": "clip_Waymo_857_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0406,
+    "l2_error": 18.1734
+  },
+  {
+    "clip_id": "clip_Waymo_857_0001",
+    "condition": "unaltered",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 17.8563,
+    "l2_error": 22.5176
+  },
+  {
+    "clip_id": "clip_Waymo_864_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.05,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_864_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9219,
+    "l2_error": 19.1749
+  },
+  {
+    "clip_id": "clip_Waymo_865_0000",
+    "condition": "unaltered",
+    "EP": 0.3227,
+    "C": 0.0,
+    "PDMS": 0.5511,
+    "loss": 18.0625,
+    "l2_error": 26.6464
+  },
+  {
+    "clip_id": "clip_Waymo_865_0001",
+    "condition": "unaltered",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.8,
+    "l2_error": 23.0208
+  },
+  {
+    "clip_id": "clip_Waymo_870_0000",
+    "condition": "unaltered",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.325,
+    "l2_error": 19.4596
+  },
+  {
+    "clip_id": "clip_Waymo_870_0001",
+    "condition": "unaltered",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.6656,
+    "l2_error": 22.3579
+  },
+  {
+    "clip_id": "clip_Waymo_873_0000",
+    "condition": "unaltered",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.6938,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_873_0001",
+    "condition": "unaltered",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 17.7687,
+    "l2_error": 19.9077
+  },
+  {
+    "clip_id": "clip_Waymo_874_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3438,
+    "l2_error": 15.9239
+  },
+  {
+    "clip_id": "clip_Waymo_874_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5531,
+    "l2_error": 15.1099
+  },
+  {
+    "clip_id": "clip_Waymo_875_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_875_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2719,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_878_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.25,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_878_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1484,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_883_0000",
+    "condition": "unaltered",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.5,
+    "l2_error": 19.0204
+  },
+  {
+    "clip_id": "clip_Waymo_883_0001",
+    "condition": "unaltered",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.7563,
+    "l2_error": 24.1898
+  },
+  {
+    "clip_id": "clip_Waymo_885_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2594,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_885_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2719,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_886_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3781,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_886_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5328,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_893_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9625,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_893_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1031,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_897_0000",
+    "condition": "unaltered",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.6375,
+    "l2_error": 20.8173
+  },
+  {
+    "clip_id": "clip_Waymo_897_0001",
+    "condition": "unaltered",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.3375,
+    "l2_error": 25.5287
+  },
+  {
+    "clip_id": "clip_Waymo_899_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.75,
+    "l2_error": 17.8604
+  },
+  {
+    "clip_id": "clip_Waymo_899_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1406,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_904_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_904_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3062,
+    "l2_error": 18.0045
+  },
+  {
+    "clip_id": "clip_Waymo_907_0000",
+    "condition": "unaltered",
+    "EP": 0.247,
+    "C": 0.0,
+    "PDMS": 0.5196,
+    "loss": 14.3938,
+    "l2_error": 22.777
+  },
+  {
+    "clip_id": "clip_Waymo_908_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9906,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_908_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1094,
+    "l2_error": 27.3119
+  },
+  {
+    "clip_id": "clip_Waymo_909_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4312,
+    "l2_error": 15.4973
+  },
+  {
+    "clip_id": "clip_Waymo_909_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2875,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_913_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0688,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_913_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1531,
+    "l2_error": 28.2354
+  },
+  {
+    "clip_id": "clip_Waymo_914_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2,
+    "l2_error": 20.4044
+  },
+  {
+    "clip_id": "clip_Waymo_914_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2406,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_916_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.5688,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_916_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.6406,
+    "l2_error": 18.4152
+  },
+  {
+    "clip_id": "clip_Waymo_923_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0469,
+    "l2_error": 19.7684
+  },
+  {
+    "clip_id": "clip_Waymo_923_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4531,
+    "l2_error": 23.355
+  },
+  {
+    "clip_id": "clip_Waymo_925_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1719,
+    "l2_error": 13.3789
+  },
+  {
+    "clip_id": "clip_Waymo_925_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4625,
+    "l2_error": 25.0478
+  },
+  {
+    "clip_id": "clip_Waymo_926_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.5844,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_926_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1688,
+    "l2_error": 22.8073
+  },
+  {
+    "clip_id": "clip_Waymo_930_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0187,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_930_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0063,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_931_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2437,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_931_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5891,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_933_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_933_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0688,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_935_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0875,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_935_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.7156,
+    "l2_error": 18.2234
+  },
+  {
+    "clip_id": "clip_Waymo_936_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.625,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_936_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3594,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_939_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6437,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_939_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2687,
+    "l2_error": 28.4221
+  },
+  {
+    "clip_id": "clip_Waymo_945_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4281,
+    "l2_error": 19.7684
+  },
+  {
+    "clip_id": "clip_Waymo_945_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1969,
+    "l2_error": 23.355
+  },
+  {
+    "clip_id": "clip_Waymo_956_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7188,
+    "l2_error": 21.1284
+  },
+  {
+    "clip_id": "clip_Waymo_956_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2125,
+    "l2_error": 21.0064
+  },
+  {
+    "clip_id": "clip_Waymo_961_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1281,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_961_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2578,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_967_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1406,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_967_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.575,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_975_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2687,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_975_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5859,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_982_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1562,
+    "l2_error": 18.2485
+  },
+  {
+    "clip_id": "clip_Waymo_982_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.6063,
+    "l2_error": 27.9889
+  },
+  {
+    "clip_id": "clip_Waymo_986_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0312,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_986_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2078,
+    "l2_error": 21.9371
+  },
+  {
+    "clip_id": "clip_Waymo_996_0000",
+    "condition": "unaltered",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3344,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_996_0001",
+    "condition": "unaltered",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5297,
+    "l2_error": 20.9757
+  },
+  {
+    "clip_id": "clip_Waymo_717_0000",
+    "condition": "noise_injection",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 16.725,
+    "l2_error": 20.2306
+  },
+  {
+    "clip_id": "clip_Waymo_738_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2875,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_738_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0219,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_789_0000",
+    "condition": "noise_injection",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.5109,
+    "l2_error": 19.7813
+  },
+  {
+    "clip_id": "clip_Waymo_798_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8937,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_798_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1156,
+    "l2_error": 21.041
+  },
+  {
+    "clip_id": "clip_Waymo_804_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9062,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_804_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1953,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_819_0000",
+    "condition": "noise_injection",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.5063,
+    "l2_error": 15.4547
+  },
+  {
+    "clip_id": "clip_Waymo_819_0001",
+    "condition": "noise_injection",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 18.075,
+    "l2_error": 21.2473
+  },
+  {
+    "clip_id": "clip_Waymo_832_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0312,
+    "l2_error": 15.0511
+  },
+  {
+    "clip_id": "clip_Waymo_832_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9266,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_834_0000",
+    "condition": "noise_injection",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.4172,
+    "l2_error": 19.8634
+  },
+  {
+    "clip_id": "clip_Waymo_837_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.825,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_837_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.7938,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_838_0000",
+    "condition": "noise_injection",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.3375,
+    "l2_error": 17.659
+  },
+  {
+    "clip_id": "clip_Waymo_838_0001",
+    "condition": "noise_injection",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.4359,
+    "l2_error": 22.0992
+  },
+  {
+    "clip_id": "clip_Waymo_840_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0625,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_840_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0359,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_844_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9688,
+    "l2_error": 16.8328
+  },
+  {
+    "clip_id": "clip_Waymo_844_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.7641,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_851_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3594,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_851_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2313,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_856_0000",
+    "condition": "noise_injection",
+    "EP": 0.3224,
+    "C": 0.0,
+    "PDMS": 0.551,
+    "loss": 18.0938,
+    "l2_error": 21.8019
+  },
+  {
+    "clip_id": "clip_Waymo_857_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7469,
+    "l2_error": 16.5082
+  },
+  {
+    "clip_id": "clip_Waymo_857_0001",
+    "condition": "noise_injection",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 17.4062,
+    "l2_error": 19.9077
+  },
+  {
+    "clip_id": "clip_Waymo_864_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3062,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_864_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0375,
+    "l2_error": 19.1749
+  },
+  {
+    "clip_id": "clip_Waymo_865_0000",
+    "condition": "noise_injection",
+    "EP": 0.3227,
+    "C": 0.0,
+    "PDMS": 0.5511,
+    "loss": 17.975,
+    "l2_error": 17.2252
+  },
+  {
+    "clip_id": "clip_Waymo_865_0001",
+    "condition": "noise_injection",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.95,
+    "l2_error": 23.3243
+  },
+  {
+    "clip_id": "clip_Waymo_870_0000",
+    "condition": "noise_injection",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.3125,
+    "l2_error": 20.2306
+  },
+  {
+    "clip_id": "clip_Waymo_870_0001",
+    "condition": "noise_injection",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.8563,
+    "l2_error": 19.8634
+  },
+  {
+    "clip_id": "clip_Waymo_873_0000",
+    "condition": "noise_injection",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.5562,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_873_0001",
+    "condition": "noise_injection",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.1187,
+    "l2_error": 20.5413
+  },
+  {
+    "clip_id": "clip_Waymo_874_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.6094,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_874_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.6047,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_875_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8781,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_875_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1453,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_878_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2031,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_878_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1469,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_883_0000",
+    "condition": "noise_injection",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 19.0312,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_883_0001",
+    "condition": "noise_injection",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.5,
+    "l2_error": 23.3243
+  },
+  {
+    "clip_id": "clip_Waymo_885_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2313,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_885_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.8531,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_886_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4375,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_886_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2828,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_893_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0844,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_893_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.8937,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_897_0000",
+    "condition": "noise_injection",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.9312,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_897_0001",
+    "condition": "noise_injection",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.4813,
+    "l2_error": 19.9077
+  },
+  {
+    "clip_id": "clip_Waymo_899_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8375,
+    "l2_error": 16.4929
+  },
+  {
+    "clip_id": "clip_Waymo_899_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1328,
+    "l2_error": 21.3301
+  },
+  {
+    "clip_id": "clip_Waymo_904_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3969,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_904_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1766,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_907_0000",
+    "condition": "noise_injection",
+    "EP": 0.247,
+    "C": 0.0,
+    "PDMS": 0.5196,
+    "loss": 14.2125,
+    "l2_error": 25.2703
+  },
+  {
+    "clip_id": "clip_Waymo_908_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1469,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_908_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9328,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_909_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3781,
+    "l2_error": 17.0172
+  },
+  {
+    "clip_id": "clip_Waymo_909_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.075,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_913_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.4813,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_913_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.7719,
+    "l2_error": 22.105
+  },
+  {
+    "clip_id": "clip_Waymo_914_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0812,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_914_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4688,
+    "l2_error": 17.4989
+  },
+  {
+    "clip_id": "clip_Waymo_916_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.5187,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_916_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4406,
+    "l2_error": 18.4925
+  },
+  {
+    "clip_id": "clip_Waymo_923_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7188,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_923_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0281,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_925_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.175,
+    "l2_error": 12.1844
+  },
+  {
+    "clip_id": "clip_Waymo_925_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2563,
+    "l2_error": 16.8047
+  },
+  {
+    "clip_id": "clip_Waymo_926_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8188,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_926_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2578,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_930_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2219,
+    "l2_error": 15.3288
+  },
+  {
+    "clip_id": "clip_Waymo_930_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9172,
+    "l2_error": 18.9809
+  },
+  {
+    "clip_id": "clip_Waymo_931_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9281,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_931_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4094,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_933_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2563,
+    "l2_error": 15.9239
+  },
+  {
+    "clip_id": "clip_Waymo_933_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9859,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_935_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1781,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_935_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5875,
+    "l2_error": 21.4884
+  },
+  {
+    "clip_id": "clip_Waymo_936_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1781,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_936_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3062,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_939_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6469,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_939_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.825,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_945_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_945_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3391,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_956_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8719,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_956_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.15,
+    "l2_error": 17.5598
+  },
+  {
+    "clip_id": "clip_Waymo_961_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3719,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_961_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3281,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_967_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2375,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_967_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2578,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_975_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2125,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_975_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3844,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_982_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0625,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_982_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3656,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_986_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0125,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_986_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1094,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_996_0000",
+    "condition": "noise_injection",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.5438,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_996_0001",
+    "condition": "noise_injection",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5125,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_717_0000",
+    "condition": "cutout",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 16.4,
+    "l2_error": 16.9669
+  },
+  {
+    "clip_id": "clip_Waymo_738_0000",
+    "condition": "cutout",
+    "EP": 0.634,
+    "C": 0.0,
+    "PDMS": 0.6808,
+    "loss": 17.8969,
+    "l2_error": 16.7588
+  },
+  {
+    "clip_id": "clip_Waymo_738_0001",
+    "condition": "cutout",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 17.2531,
+    "l2_error": 22.3641
+  },
+  {
+    "clip_id": "clip_Waymo_789_0000",
+    "condition": "cutout",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.3008,
+    "l2_error": 27.0624
+  },
+  {
+    "clip_id": "clip_Waymo_798_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6781,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_798_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0656,
+    "l2_error": 17.5598
+  },
+  {
+    "clip_id": "clip_Waymo_804_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.5312,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_804_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9188,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_819_0000",
+    "condition": "cutout",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.05,
+    "l2_error": 15.4547
+  },
+  {
+    "clip_id": "clip_Waymo_819_0001",
+    "condition": "cutout",
+    "EP": 0.3883,
+    "C": 0.0,
+    "PDMS": 0.5785,
+    "loss": 17.6031,
+    "l2_error": 17.7101
+  },
+  {
+    "clip_id": "clip_Waymo_832_0000",
+    "condition": "cutout",
+    "EP": 0.3468,
+    "C": 0.0,
+    "PDMS": 0.5612,
+    "loss": 17.6562,
+    "l2_error": 15.9118
+  },
+  {
+    "clip_id": "clip_Waymo_832_0001",
+    "condition": "cutout",
+    "EP": 0.4073,
+    "C": 0.0,
+    "PDMS": 0.5864,
+    "loss": 16.9781,
+    "l2_error": 21.1733
+  },
+  {
+    "clip_id": "clip_Waymo_834_0000",
+    "condition": "cutout",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.1375,
+    "l2_error": 22.0992
+  },
+  {
+    "clip_id": "clip_Waymo_837_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9031,
+    "l2_error": 20.5981
+  },
+  {
+    "clip_id": "clip_Waymo_837_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1313,
+    "l2_error": 22.7219
+  },
+  {
+    "clip_id": "clip_Waymo_838_0000",
+    "condition": "cutout",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.0438,
+    "l2_error": 18.2914
+  },
+  {
+    "clip_id": "clip_Waymo_838_0001",
+    "condition": "cutout",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.3594,
+    "l2_error": 19.8634
+  },
+  {
+    "clip_id": "clip_Waymo_840_0000",
+    "condition": "cutout",
+    "EP": 0.634,
+    "C": 0.0,
+    "PDMS": 0.6808,
+    "loss": 18.0406,
+    "l2_error": 19.5877
+  },
+  {
+    "clip_id": "clip_Waymo_840_0001",
+    "condition": "cutout",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 17.3062,
+    "l2_error": 22.2453
+  },
+  {
+    "clip_id": "clip_Waymo_844_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7812,
+    "l2_error": 18.9333
+  },
+  {
+    "clip_id": "clip_Waymo_844_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.775,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_851_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9375,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_851_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3031,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_856_0000",
+    "condition": "cutout",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 18.1625,
+    "l2_error": 23.3714
+  },
+  {
+    "clip_id": "clip_Waymo_857_0000",
+    "condition": "cutout",
+    "EP": 0.634,
+    "C": 0.0,
+    "PDMS": 0.6808,
+    "loss": 17.8531,
+    "l2_error": 16.403
+  },
+  {
+    "clip_id": "clip_Waymo_857_0001",
+    "condition": "cutout",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 17.9125,
+    "l2_error": 19.9077
+  },
+  {
+    "clip_id": "clip_Waymo_864_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7281,
+    "l2_error": 19.0782
+  },
+  {
+    "clip_id": "clip_Waymo_864_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9125,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_865_0000",
+    "condition": "cutout",
+    "EP": 0.3227,
+    "C": 0.0,
+    "PDMS": 0.5511,
+    "loss": 17.7437,
+    "l2_error": 19.6143
+  },
+  {
+    "clip_id": "clip_Waymo_865_0001",
+    "condition": "cutout",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.5812,
+    "l2_error": 20.4711
+  },
+  {
+    "clip_id": "clip_Waymo_870_0000",
+    "condition": "cutout",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.0625,
+    "l2_error": 17.659
+  },
+  {
+    "clip_id": "clip_Waymo_870_0001",
+    "condition": "cutout",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.375,
+    "l2_error": 18.9113
+  },
+  {
+    "clip_id": "clip_Waymo_873_0000",
+    "condition": "cutout",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.1688,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_873_0001",
+    "condition": "cutout",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.1719,
+    "l2_error": 22.9016
+  },
+  {
+    "clip_id": "clip_Waymo_874_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2062,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_874_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3359,
+    "l2_error": 14.4255
+  },
+  {
+    "clip_id": "clip_Waymo_875_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7687,
+    "l2_error": 16.8328
+  },
+  {
+    "clip_id": "clip_Waymo_875_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.025,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_878_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_878_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.8516,
+    "l2_error": 17.3161
+  },
+  {
+    "clip_id": "clip_Waymo_883_0000",
+    "condition": "cutout",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.0812,
+    "l2_error": 18.0953
+  },
+  {
+    "clip_id": "clip_Waymo_883_0001",
+    "condition": "cutout",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.4688,
+    "l2_error": 20.4711
+  },
+  {
+    "clip_id": "clip_Waymo_885_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0312,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_885_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0031,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_886_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1938,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_886_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4078,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_893_0000",
+    "condition": "cutout",
+    "EP": 0.634,
+    "C": 0.0,
+    "PDMS": 0.6808,
+    "loss": 17.7219,
+    "l2_error": 16.7588
+  },
+  {
+    "clip_id": "clip_Waymo_893_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1406,
+    "l2_error": 20.7667
+  },
+  {
+    "clip_id": "clip_Waymo_897_0000",
+    "condition": "cutout",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.3375,
+    "l2_error": 18.8204
+  },
+  {
+    "clip_id": "clip_Waymo_897_0001",
+    "condition": "cutout",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.0781,
+    "l2_error": 22.5176
+  },
+  {
+    "clip_id": "clip_Waymo_899_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7938,
+    "l2_error": 15.3288
+  },
+  {
+    "clip_id": "clip_Waymo_899_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9125,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_904_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7375,
+    "l2_error": 16.8328
+  },
+  {
+    "clip_id": "clip_Waymo_904_0001",
+    "condition": "cutout",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 17.1594,
+    "l2_error": 22.3641
+  },
+  {
+    "clip_id": "clip_Waymo_907_0000",
+    "condition": "cutout",
+    "EP": 0.247,
+    "C": 0.0,
+    "PDMS": 0.5196,
+    "loss": 14.2469,
+    "l2_error": 20.2799
+  },
+  {
+    "clip_id": "clip_Waymo_908_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7531,
+    "l2_error": 16.8328
+  },
+  {
+    "clip_id": "clip_Waymo_908_0001",
+    "condition": "cutout",
+    "EP": 0.0,
+    "C": 0.0,
+    "PDMS": 0.4167,
+    "loss": 16.9062,
+    "l2_error": 22.3641
+  },
+  {
+    "clip_id": "clip_Waymo_909_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.825,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_909_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1063,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_913_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0688,
+    "l2_error": 16.7775
+  },
+  {
+    "clip_id": "clip_Waymo_913_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9719,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_914_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1187,
+    "l2_error": 19.0782
+  },
+  {
+    "clip_id": "clip_Waymo_914_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1875,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_916_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.425,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_916_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3438,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_923_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0281,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_923_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3687,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_925_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0656,
+    "l2_error": 20.6278
+  },
+  {
+    "clip_id": "clip_Waymo_925_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5531,
+    "l2_error": 14.0425
+  },
+  {
+    "clip_id": "clip_Waymo_926_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.85,
+    "l2_error": 15.8411
+  },
+  {
+    "clip_id": "clip_Waymo_926_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2609,
+    "l2_error": 20.3221
+  },
+  {
+    "clip_id": "clip_Waymo_930_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1156,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_930_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9719,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_931_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9062,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_931_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4188,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_933_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0094,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_933_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.85,
+    "l2_error": 17.3161
+  },
+  {
+    "clip_id": "clip_Waymo_935_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1719,
+    "l2_error": 15.3129
+  },
+  {
+    "clip_id": "clip_Waymo_935_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4109,
+    "l2_error": 20.2033
+  },
+  {
+    "clip_id": "clip_Waymo_936_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7812,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_936_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4531,
+    "l2_error": 20.3221
+  },
+  {
+    "clip_id": "clip_Waymo_939_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.5812,
+    "l2_error": 22.665
+  },
+  {
+    "clip_id": "clip_Waymo_939_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1281,
+    "l2_error": 20.5621
+  },
+  {
+    "clip_id": "clip_Waymo_945_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4813,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_945_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1938,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_956_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.675,
+    "l2_error": 18.0003
+  },
+  {
+    "clip_id": "clip_Waymo_956_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2469,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_961_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_961_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1469,
+    "l2_error": 17.1878
+  },
+  {
+    "clip_id": "clip_Waymo_967_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9937,
+    "l2_error": 17.4722
+  },
+  {
+    "clip_id": "clip_Waymo_967_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1375,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_975_0000",
+    "condition": "cutout",
+    "EP": 0.634,
+    "C": 0.0,
+    "PDMS": 0.6808,
+    "loss": 17.7938,
+    "l2_error": 16.7588
+  },
+  {
+    "clip_id": "clip_Waymo_975_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2938,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_982_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9219,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_982_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0656,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_986_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.7188,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_986_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9156,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_996_0000",
+    "condition": "cutout",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1406,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_996_0001",
+    "condition": "cutout",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1219,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_717_0000",
+    "condition": "frame_drop",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 16.6187,
+    "l2_error": 21.1789
+  },
+  {
+    "clip_id": "clip_Waymo_738_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2406,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_738_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.375,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_789_0000",
+    "condition": "frame_drop",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.4937,
+    "l2_error": 22.0992
+  },
+  {
+    "clip_id": "clip_Waymo_798_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.975,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_798_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2188,
+    "l2_error": 25.4731
+  },
+  {
+    "clip_id": "clip_Waymo_804_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_804_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1125,
+    "l2_error": 20.9857
+  },
+  {
+    "clip_id": "clip_Waymo_819_0000",
+    "condition": "frame_drop",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.175,
+    "l2_error": 17.1128
+  },
+  {
+    "clip_id": "clip_Waymo_819_0001",
+    "condition": "frame_drop",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.2281,
+    "l2_error": 22.9016
+  },
+  {
+    "clip_id": "clip_Waymo_832_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8156,
+    "l2_error": 15.9239
+  },
+  {
+    "clip_id": "clip_Waymo_832_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2313,
+    "l2_error": 20.9857
+  },
+  {
+    "clip_id": "clip_Waymo_834_0000",
+    "condition": "frame_drop",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.275,
+    "l2_error": 19.8634
+  },
+  {
+    "clip_id": "clip_Waymo_837_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.825,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_837_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9344,
+    "l2_error": 21.2574
+  },
+  {
+    "clip_id": "clip_Waymo_838_0000",
+    "condition": "frame_drop",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.0063,
+    "l2_error": 20.8631
+  },
+  {
+    "clip_id": "clip_Waymo_838_0001",
+    "condition": "frame_drop",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.9094,
+    "l2_error": 22.2721
+  },
+  {
+    "clip_id": "clip_Waymo_840_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_840_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0312,
+    "l2_error": 23.8963
+  },
+  {
+    "clip_id": "clip_Waymo_844_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8719,
+    "l2_error": 17.4722
+  },
+  {
+    "clip_id": "clip_Waymo_844_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0781,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_851_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0312,
+    "l2_error": 17.9719
+  },
+  {
+    "clip_id": "clip_Waymo_851_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3891,
+    "l2_error": 18.1074
+  },
+  {
+    "clip_id": "clip_Waymo_856_0000",
+    "condition": "frame_drop",
+    "EP": 0.3224,
+    "C": 0.0,
+    "PDMS": 0.551,
+    "loss": 18.25,
+    "l2_error": 21.8019
+  },
+  {
+    "clip_id": "clip_Waymo_857_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0406,
+    "l2_error": 18.1734
+  },
+  {
+    "clip_id": "clip_Waymo_857_0001",
+    "condition": "frame_drop",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.0625,
+    "l2_error": 22.4714
+  },
+  {
+    "clip_id": "clip_Waymo_864_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.05,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_864_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.9219,
+    "l2_error": 19.1749
+  },
+  {
+    "clip_id": "clip_Waymo_865_0000",
+    "condition": "frame_drop",
+    "EP": 0.3227,
+    "C": 0.0,
+    "PDMS": 0.5511,
+    "loss": 18.0625,
+    "l2_error": 26.6464
+  },
+  {
+    "clip_id": "clip_Waymo_865_0001",
+    "condition": "frame_drop",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.8,
+    "l2_error": 23.0208
+  },
+  {
+    "clip_id": "clip_Waymo_870_0000",
+    "condition": "frame_drop",
+    "EP": 0.382,
+    "C": 0.0,
+    "PDMS": 0.5758,
+    "loss": 17.325,
+    "l2_error": 19.4596
+  },
+  {
+    "clip_id": "clip_Waymo_870_0001",
+    "condition": "frame_drop",
+    "EP": 0.2392,
+    "C": 0.0,
+    "PDMS": 0.5163,
+    "loss": 17.6656,
+    "l2_error": 22.3579
+  },
+  {
+    "clip_id": "clip_Waymo_873_0000",
+    "condition": "frame_drop",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.6938,
+    "l2_error": 16.7544
+  },
+  {
+    "clip_id": "clip_Waymo_873_0001",
+    "condition": "frame_drop",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.1625,
+    "l2_error": 22.5176
+  },
+  {
+    "clip_id": "clip_Waymo_874_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2812,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_874_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5531,
+    "l2_error": 15.1099
+  },
+  {
+    "clip_id": "clip_Waymo_875_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_875_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1562,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_878_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.25,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_878_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1484,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_883_0000",
+    "condition": "frame_drop",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.5812,
+    "l2_error": 18.8204
+  },
+  {
+    "clip_id": "clip_Waymo_883_0001",
+    "condition": "frame_drop",
+    "EP": 0.2521,
+    "C": 0.0,
+    "PDMS": 0.5217,
+    "loss": 18.7563,
+    "l2_error": 24.1898
+  },
+  {
+    "clip_id": "clip_Waymo_885_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2625,
+    "l2_error": 16.7775
+  },
+  {
+    "clip_id": "clip_Waymo_885_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2719,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_886_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.3781,
+    "l2_error": 16.2493
+  },
+  {
+    "clip_id": "clip_Waymo_886_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5406,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_893_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9625,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_893_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1031,
+    "l2_error": 26.6275
+  },
+  {
+    "clip_id": "clip_Waymo_897_0000",
+    "condition": "frame_drop",
+    "EP": 0.2537,
+    "C": 0.0,
+    "PDMS": 0.5224,
+    "loss": 18.6375,
+    "l2_error": 20.8173
+  },
+  {
+    "clip_id": "clip_Waymo_897_0001",
+    "condition": "frame_drop",
+    "EP": 0.281,
+    "C": 0.0,
+    "PDMS": 0.5337,
+    "loss": 18.3375,
+    "l2_error": 25.5287
+  },
+  {
+    "clip_id": "clip_Waymo_899_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.75,
+    "l2_error": 17.8604
+  },
+  {
+    "clip_id": "clip_Waymo_899_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1406,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_904_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_904_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3031,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_907_0000",
+    "condition": "frame_drop",
+    "EP": 0.247,
+    "C": 0.0,
+    "PDMS": 0.5196,
+    "loss": 14.3938,
+    "l2_error": 22.777
+  },
+  {
+    "clip_id": "clip_Waymo_908_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9906,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_908_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 16.8312,
+    "l2_error": 21.5877
+  },
+  {
+    "clip_id": "clip_Waymo_909_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4312,
+    "l2_error": 15.4973
+  },
+  {
+    "clip_id": "clip_Waymo_909_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2016,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_913_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.175,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_913_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.3125,
+    "l2_error": 23.355
+  },
+  {
+    "clip_id": "clip_Waymo_914_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2,
+    "l2_error": 20.4044
+  },
+  {
+    "clip_id": "clip_Waymo_914_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2594,
+    "l2_error": 23.252
+  },
+  {
+    "clip_id": "clip_Waymo_916_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4312,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_916_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.6406,
+    "l2_error": 18.4152
+  },
+  {
+    "clip_id": "clip_Waymo_923_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0469,
+    "l2_error": 19.7684
+  },
+  {
+    "clip_id": "clip_Waymo_923_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4531,
+    "l2_error": 23.355
+  },
+  {
+    "clip_id": "clip_Waymo_925_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.95,
+    "l2_error": 17.9719
+  },
+  {
+    "clip_id": "clip_Waymo_925_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.4625,
+    "l2_error": 25.0478
+  },
+  {
+    "clip_id": "clip_Waymo_926_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.5844,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_926_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1688,
+    "l2_error": 22.8073
+  },
+  {
+    "clip_id": "clip_Waymo_930_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.8563,
+    "l2_error": 18.2973
+  },
+  {
+    "clip_id": "clip_Waymo_930_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.0063,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_931_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2437,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_931_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5891,
+    "l2_error": 23.738
+  },
+  {
+    "clip_id": "clip_Waymo_933_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.1156,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_933_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2156,
+    "l2_error": 20.8697
+  },
+  {
+    "clip_id": "clip_Waymo_935_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0875,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_935_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.7016,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_936_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.625,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_936_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2469,
+    "l2_error": 21.9371
+  },
+  {
+    "clip_id": "clip_Waymo_939_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9312,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_939_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2687,
+    "l2_error": 28.4221
+  },
+  {
+    "clip_id": "clip_Waymo_945_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4281,
+    "l2_error": 19.7684
+  },
+  {
+    "clip_id": "clip_Waymo_945_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.1969,
+    "l2_error": 23.355
+  },
+  {
+    "clip_id": "clip_Waymo_956_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.6656,
+    "l2_error": 17.4438
+  },
+  {
+    "clip_id": "clip_Waymo_956_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2437,
+    "l2_error": 24.0167
+  },
+  {
+    "clip_id": "clip_Waymo_961_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2062,
+    "l2_error": 15.3288
+  },
+  {
+    "clip_id": "clip_Waymo_961_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2578,
+    "l2_error": 18.4905
+  },
+  {
+    "clip_id": "clip_Waymo_967_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.975,
+    "l2_error": 13.3789
+  },
+  {
+    "clip_id": "clip_Waymo_967_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2406,
+    "l2_error": 21.2528
+  },
+  {
+    "clip_id": "clip_Waymo_975_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.2687,
+    "l2_error": 19.2403
+  },
+  {
+    "clip_id": "clip_Waymo_975_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5859,
+    "l2_error": 18.8448
+  },
+  {
+    "clip_id": "clip_Waymo_982_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.0063,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_982_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.6063,
+    "l2_error": 27.9889
+  },
+  {
+    "clip_id": "clip_Waymo_986_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 17.9188,
+    "l2_error": 17.7692
+  },
+  {
+    "clip_id": "clip_Waymo_986_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.2344,
+    "l2_error": 17.8722
+  },
+  {
+    "clip_id": "clip_Waymo_996_0000",
+    "condition": "frame_drop",
+    "EP": 0.2027,
+    "C": 0.0,
+    "PDMS": 0.5011,
+    "loss": 18.4219,
+    "l2_error": 17.7204
+  },
+  {
+    "clip_id": "clip_Waymo_996_0001",
+    "condition": "frame_drop",
+    "EP": 0.3639,
+    "C": 0.0,
+    "PDMS": 0.5683,
+    "loss": 17.5297,
+    "l2_error": 20.9757
+  }
+]

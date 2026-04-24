@@ -3,16 +3,17 @@ import re
 import glob
 import tarfile
 import io
-from collections import defaultdict
-
 import numpy as np
-from PIL import Image
 import cv2
 import gc
+from PIL import Image
+from collections import defaultdict
 
-HOME = "/home/jeff/CS7643/DriveContrast"
-TAR_DIR = f"{HOME}/data/waymo_subset/waymo"
-OUTPUT_DIR = f"{HOME}/data"
+# Determine paths relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+TAR_DIR = os.path.join(PROJECT_ROOT, "data", "waymo_subset", "waymo")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "data")
 SUBSET = "Unconventional Dynamic Obstacles"
 
 FPS = 2
@@ -20,13 +21,11 @@ RESOLUTION = 224
 CLIP_SIZE = 16
 STRIDE = 8
 
-
 def parse_q7_answer(text: str) -> np.ndarray:
     matches = re.findall(r"\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\]", text)
     if not matches:
         return np.zeros((10, 2), dtype=np.float32)
     return np.array([[float(x), float(y)] for x, y in matches], dtype=np.float32)
-
 
 def pad_or_truncate_actions(actions: np.ndarray, horizon: int = 10) -> np.ndarray:
     n = actions.shape[0]
@@ -37,9 +36,8 @@ def pad_or_truncate_actions(actions: np.ndarray, horizon: int = 10) -> np.ndarra
     pad = np.tile(actions[-1:], (horizon - n, 1))
     return np.concatenate([actions, pad], axis=0)
 
-
 def frames_to_mp4(frames: list, output_path: str, fps: int = 2, resolution: int = 224):
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    fourcc = cv2.VideoWriter_fourcc(*"avc1")
     writer = cv2.VideoWriter(output_path, fourcc, fps, (resolution, resolution))
 
     for pil_img in frames:
@@ -50,10 +48,8 @@ def frames_to_mp4(frames: list, output_path: str, fps: int = 2, resolution: int 
 
     writer.release()
 
-
 def extract_tar(tar_path: str) -> dict:
     samples = {}
-
     with tarfile.open(tar_path, "r") as tar:
         members_by_name = {m.name: m for m in tar.getmembers()}
         front_keys = [name for name in members_by_name if name.endswith(".camera_FRONT.png")]
@@ -104,7 +100,6 @@ def extract_tar(tar_path: str) -> dict:
 
     return samples
 
-
 def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list:
     by_clip = defaultdict(list)
     for _, data in all_samples.items():
@@ -114,9 +109,7 @@ def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list
     for clip_id, frames_data in by_clip.items():
         frames_data.sort(key=lambda x: x["idx"])
         n = len(frames_data)
-
-        if n == 0:
-            continue
+        if n == 0: continue
 
         if n < clip_size:
             pad_needed = clip_size - n
@@ -138,85 +131,37 @@ def build_clips(all_samples: dict, clip_size: int = 16, stride: int = 8) -> list
                     "actions": window[-1]["actions"],
                 })
                 window_idx += 1
-
     return clips
-
-
-def collect_split_shards(tar_dir: str):
-    train_tars = sorted(glob.glob(os.path.join(tar_dir, "waymo_train_shard_*.tar")))
-    val_tars = sorted(glob.glob(os.path.join(tar_dir, "waymo_val_shard_*.tar")))
-    return train_tars, val_tars
-
-
-def load_samples_from_shards(tar_files: list, split_name: str) -> dict:
-    all_samples = {}
-
-    if not tar_files:
-        print(f"No {split_name} shards found.")
-        return all_samples
-
-    print(f"Found {len(tar_files)} {split_name} shards")
-
-    for i, tar_path in enumerate(tar_files):
-        print(f"[{split_name} {i + 1}/{len(tar_files)}] {os.path.basename(tar_path)}")
-        shard_samples = extract_tar(tar_path)
-        print(f"  extracted {len(shard_samples)} frames")
-
-        # In case sample_id names repeat across shards, make the key shard-specific
-        shard_prefix = os.path.splitext(os.path.basename(tar_path))[0]
-        for sample_id, sample in shard_samples.items():
-            unique_sample_id = f"{shard_prefix}__{sample_id}"
-            all_samples[unique_sample_id] = sample
-
-    return all_samples
-
 
 def write_split(split_name: str, split_clips: list):
     out_dir = os.path.join(OUTPUT_DIR, SUBSET, split_name)
     os.makedirs(out_dir, exist_ok=True)
-    print(f"Writing {len(split_clips)} {split_name} clips to {out_dir} ...")
+    print(f"Writing {len(split_clips)} {split_name} clips ...")
 
     for clip in split_clips:
         safe_clip_id = re.sub(r"[^\w\-]", "_", clip["clip_id"])
         base_name = f"clip_{safe_clip_id}_{clip['clip_window_idx']:04d}"
+        frames_to_mp4(clip["frames"], os.path.join(out_dir, f"{base_name}.mp4"), fps=FPS, resolution=RESOLUTION)
+        np.save(os.path.join(out_dir, f"{base_name}.npy"), clip["actions"].astype(np.float32))
 
-        mp4_path = os.path.join(out_dir, f"{base_name}.mp4")
-        npy_path = os.path.join(out_dir, f"{base_name}.npy")
+def collect_split_shards(tar_dir: str):
+    return sorted(glob.glob(os.path.join(tar_dir, "waymo_train_shard_*.tar"))), sorted(glob.glob(os.path.join(tar_dir, "waymo_val_shard_*.tar")))
 
-        frames_to_mp4(clip["frames"], mp4_path, fps=FPS, resolution=RESOLUTION)
-        np.save(npy_path, clip["actions"].astype(np.float32))
-
+def load_samples_from_shards(tar_files: list, split_name: str) -> dict:
+    all_samples = {}
+    for i, tar_path in enumerate(tar_files):
+        print(f"Extracting {split_name} {i+1}/{len(tar_files)}")
+        shard_samples = extract_tar(tar_path)
+        for sample_id, sample in shard_samples.items():
+            all_samples[f"{os.path.basename(tar_path)}__{sample_id}"] = sample
+    return all_samples
 
 def main():
     train_tars, val_tars = collect_split_shards(TAR_DIR)
-
-    if not train_tars and not val_tars:
-        raise FileNotFoundError(
-            f"No training or validation shard .tar files found under {TAR_DIR}"
-        )
-
-    # Process train fully
-    train_samples = load_samples_from_shards(train_tars, "train")
-    train_clips = build_clips(train_samples, clip_size=CLIP_SIZE, stride=STRIDE)
-    print(f"Total train clips assembled: {len(train_clips)}")
-    write_split("train", train_clips)
-
-    del train_samples
-    del train_clips
-    gc.collect()
-
-    # Process val after train memory is freed
+    # train_samples = load_samples_from_shards(train_tars, "train")
+    # write_split("train", build_clips(train_samples))
     val_samples = load_samples_from_shards(val_tars, "val")
-    val_clips = build_clips(val_samples, clip_size=CLIP_SIZE, stride=STRIDE)
-    print(f"Total val clips assembled: {len(val_clips)}")
-    write_split("val", val_clips)
-
-    del val_samples
-    del val_clips
-    gc.collect()
-
-    print("Extraction complete")
-
+    write_split("val", build_clips(val_samples))
 
 if __name__ == "__main__":
     main()

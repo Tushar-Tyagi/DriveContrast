@@ -4,6 +4,38 @@ This repository contains the refactored framework to implement a 4D (spatiotempo
 
 Instead of a static image encoder (e.g., DinoV2 or SigLIP), this repository implements `MCG-NJU/videomae-base` to ingest 16-frame Video Action features, seamlessly integrating with the open-source `Qwen/Qwen2.5-VL-3B-Instruct` Vision-Language Model.
 
+## Models
+
+### Baseline: Qwen2.5-VL-3B-Instruct (Vanilla)
+
+The baseline uses `Qwen/Qwen2.5-VL-3B-Instruct` with its **native static vision tower** — a single-frame image encoder that processes one frame at a time. During evaluation, the middle frame of a 16-frame clip is extracted, un-normalized from VideoMAE space, and fed to the model as a standard image prompt alongside the text instruction:
+
+> *"Predict the future trajectory of the ego vehicle."*
+
+The model's output is decoded into a trajectory as follows:
+
+1. Extract the **last hidden states** from the decoder's final layer
+2. Project through the **LM head** (hidden dim → full Qwen vocab of ~151k tokens)
+3. **Slice** to only the last `H=10` timesteps and the first 2048 logits (matching the K-means action codebook size)
+4. **Argmax** over the 2048 action tokens per timestep
+5. **Decode** token IDs back to continuous `[forward_m, lateral_m]` BEV coordinates via the pre-fitted K-means cluster centers
+
+Since the model was never trained to map its vocabulary to driving actions, it is effectively a zero-shot baseline — the first 2048 token positions in Qwen's vocabulary are repurposed as an action codebook without any fine-tuning.
+
+- **Input**: Single image (middle frame of the clip) + text prompt
+- **Vision encoder**: Qwen's built-in ViT (static, 2D)
+- **No fine-tuning**: Used off-the-shelf with zero-shot prompting
+- **Evaluation script**: `scripts/eval_baseline.py`
+
+### Ours: AutoVLA 4D
+
+AutoVLA 4D replaces the static vision backbone with `MCG-NJU/videomae-base`, a spatiotemporal transformer that processes all **16 frames** of each clip. VideoMAE features are mapped to Qwen's hidden dimension via a learned 2-layer MLP projector, then decoded through the Qwen language model (fine-tuned with QLoRA) and a discrete action head.
+
+- **Input**: 16-frame video clip (2 FPS × 8 seconds)
+- **Vision encoder**: VideoMAE-base (4D spatiotemporal)
+- **Fine-tuned**: QLoRA on Qwen + trained projector + action head
+- **Evaluation script**: `scripts/eval.py`
+
 ## Getting Started
 
 1. **Install requirements**
@@ -38,6 +70,13 @@ Instead of a static image encoder (e.g., DinoV2 or SigLIP), this repository impl
    ```bash
    python scripts/eval.py
    ```
+
+7. **Visualize Results**:
+   Generate dual-panel visualizations (raw camera view + top-down BEV trajectory plot) for the evaluated clips:
+   ```bash
+   python visualize_example.py
+   ```
+   Or use the `visualization_suite.py` programmatically to compare Ground Truth (red) against Baseline Predictions (blue).
 
 ## Dataset Setup: Waymo Subset (< 300 GB)
 
