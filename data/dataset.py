@@ -3,11 +3,9 @@ import glob
 import torch
 from torch.utils.data import Dataset
 import numpy as np
-import decord
+import cv2
 from PIL import Image
 from transformers import AutoImageProcessor
-
-decord.bridge.set_bridge('torch')
 
 class ImpromptuVLADataset(Dataset):
     def __init__(self, data_dir, subset="Unconventional Dynamic Obstacles", image_processor_name="MCG-NJU/videomae-base", num_frames=16, resolution=224, split="train"):
@@ -49,9 +47,11 @@ class ImpromptuVLADataset(Dataset):
     def __getitem__(self, idx):
         video_path = self.video_files[idx]
         
-        # 1. Load video frames
-        vr = decord.VideoReader(video_path, width=self.resolution, height=self.resolution)
-        total_frames = len(vr)
+        # 1. Load video frames using cv2
+        cap = cv2.VideoCapture(video_path)
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        if total_frames <= 0:
+            total_frames = 1 # fallback if frame count is unreadable
         
         # 2. Sample 16 frames uniformly
         if total_frames >= self.num_frames:
@@ -62,10 +62,18 @@ class ImpromptuVLADataset(Dataset):
             pad = [total_frames - 1] * (self.num_frames - total_frames)
             indices = np.concatenate([indices, pad])
             
-        frames = vr.get_batch(indices) # Shape: (16, H, W, 3)
-        
-        # Convert to list of PIL Images for the huggingface processor
-        frames_pil = [Image.fromarray(frame.numpy()) for frame in frames]
+        frames_pil = []
+        for idx in indices:
+            cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+            ret, frame = cap.read()
+            if ret:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                # Resize here if you want, but processor does it
+                frames_pil.append(Image.fromarray(frame))
+            else:
+                # fallback black frame
+                frames_pil.append(Image.new("RGB", (self.resolution, self.resolution)))
+        cap.release()
         
         # 3. Process frames using VideoMAE processor (Normalizes and resizes)
         # Output shape is typically (num_frames, channels, height, width) -> (16, 3, 224, 224)

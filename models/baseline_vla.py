@@ -180,9 +180,14 @@ class BaselineVLA(nn.Module):
             raise FileNotFoundError(f"No action head at {head_path}")
 
         instance = cls(vocab_size=vocab_size)
-        instance.qwen = PeftModel.from_pretrained(
-            instance.qwen, lora_path, is_trainable=False
-        )
+        import os
+        has_weights = os.path.exists(os.path.join(lora_path, "adapter_model.safetensors")) or os.path.exists(os.path.join(lora_path, "adapter_model.bin"))
+        if has_weights:
+            instance.qwen = PeftModel.from_pretrained(
+                instance.qwen, os.path.abspath(lora_path), is_trainable=False, local_files_only=True
+            )
+        else:
+            print(f"Warning: No adapter weights found in {lora_path}, running base Qwen model.")
         instance.action_head.load_state_dict(
             torch.load(head_path, map_location="cpu")
         )
